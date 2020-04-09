@@ -14,7 +14,7 @@ public class tileInfo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         other.gameObject.transform.parent = this.transform;
     }
 }
