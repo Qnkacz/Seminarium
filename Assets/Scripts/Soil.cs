@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test : MonoBehaviour
+public class Soil : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float currSoilGrade;
+    public int minSoilgrade = 0;
+    public int maxSoilGrade = 4;
+
     void Start()
     {
         
