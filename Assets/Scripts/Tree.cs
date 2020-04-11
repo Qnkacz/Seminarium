@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
+    /// <summary>
+    /// PRAWDZIWY CZAS W SEKUNDACH BRZOZY OD 0 DO 10 LAT TO 31556926
+    /// </summary>
     public Soil soil;
-    [Header("Time")]
-    public DayCircle Daycircle;
+   
     public enum TreeStates
     {
         young,
@@ -27,11 +29,14 @@ public class Tree : MonoBehaviour
     public float baseWoodYield;
     public float woodYield;
     public float woodType;
+    public float RefreshTime=100f;
     void Start()
     {
+        RefreshTime = 100f;
         TreeTimersSetter();
         SetStartingStage();
         SetWoodYield();
+        StartCoroutine(TreeGrowthTick(RefreshTime));
     }
     public void SetStartingStage()
     {
@@ -55,17 +60,17 @@ public class Tree : MonoBehaviour
         switch(treename)
         {
             case treeClass.brzoza:
-                timeToAdult = 31556926;
+                timeToAdult = 3155;
                 timeToOld = timeToAdult * 5;
                 baseWoodYield = 200;
                 break;
             case treeClass.dab:
-                timeToAdult = 31556926 * 10;
+                timeToAdult = 3155 * 10;
                 timeToOld = timeToAdult * 10;
                 baseWoodYield = 800;
                 break;
             case treeClass.iglak:
-                timeToAdult = 31556926 / 2;
+                timeToAdult = 3155 / 2;
                 timeToOld=timeToAdult*2.5f;
                 baseWoodYield = 400;
                 break;
@@ -111,8 +116,17 @@ public class Tree : MonoBehaviour
                 break;
         }
     }
-    public void TreeGrowthTick(float time)
+    public IEnumerator TreeGrowthTick(float time)
     {
+        //currAge += time;
+        
+        
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            Debug.Log("Kappa po: " + time);
+        }
+            
         
     }
 }

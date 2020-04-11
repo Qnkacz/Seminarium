@@ -23,13 +23,17 @@ public class DayCircle : MonoBehaviour
     public float minutesperday = 60f;
     float dayNormalized;
     public UIManager UIManager;
+    public float timeScale;
 
     /// <summary>
     /// things for the date
     /// </summary>
     public int day, month, year;
     public int monthDuration, lutyDuration;
+    [Header("Referencess")]
     public GlobalVariables GV;
+    public UIManager UImanager;
+    public BossScript BossScript;
 
     private void Start()
     {
@@ -43,6 +47,8 @@ public class DayCircle : MonoBehaviour
         GV.currDay = day;
         GV.currMonth = month;
         GV.currYear = year;
+        timeScale = 1;
+        UImanager.gameSpeed = timeScale;
     }
     private void Update()
     {
@@ -123,6 +129,64 @@ public class DayCircle : MonoBehaviour
         }
     }
 
-    
- 
+    public void SetTimeScale_pause()
+    {
+        Time.timeScale = 0;
+        timeScale = 0;
+        if(UImanager.gameSpeed>timeScale)
+        {
+            UImanager.RefreshVariables.SetTrigger("R_sub");
+        }
+        else
+        {
+            UIManager.RefreshVariables.SetTrigger("R_add");
+        }
+        UImanager.gameSpeed = timeScale;
+        BossScript.currGrowRT = (int)timeScale;
+    }
+    public void SetTimeScale_To1()
+    {
+        Time.timeScale = 1;
+        timeScale = 1;
+        if (UImanager.gameSpeed > timeScale)
+        {
+            UImanager.RefreshVariables.SetTrigger("R_sub");
+        }
+        else
+        {
+            UIManager.RefreshVariables.SetTrigger("R_add");
+        }
+        UImanager.gameSpeed = timeScale;
+        BossScript.currGrowRT = (int)timeScale;
+    }
+    public void SetTimeScale_To4()
+    {
+        Time.timeScale = 4;
+        timeScale = 4;
+        if (UImanager.gameSpeed > timeScale)
+        {
+            UImanager.RefreshVariables.SetTrigger("R_sub");
+        }
+        else
+        {
+            UIManager.RefreshVariables.SetTrigger("R_add");
+        }
+        UImanager.gameSpeed = timeScale;
+        BossScript.currGrowRT = (int)timeScale;
+    }
+    public void SetTimeScale_To10()
+    {
+        Time.timeScale = 10;
+        timeScale = 10;
+        if (UImanager.gameSpeed > timeScale)
+        {
+            UImanager.RefreshVariables.SetTrigger("R_sub");
+        }
+        else
+        {
+            UIManager.RefreshVariables.SetTrigger("R_add");
+        }
+        UImanager.gameSpeed = timeScale;
+        BossScript.currGrowRT = (int)timeScale;
+    }
 }

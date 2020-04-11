@@ -22,6 +22,7 @@ public class BossScript : MonoBehaviour
     public GameObject UI;
     public UIManager UIManager;
     public Animator UIAnimator;
+    public DayCircle DayCircle;
     void Start()
     {
         UIManager = UI.GetComponent<UIManager>();
@@ -53,14 +54,7 @@ public class BossScript : MonoBehaviour
             {
                 UIAnimator.SetTrigger("s_add");
             }
-            if (lastGrowRt >= currGrowRT)
-            {
-                UIAnimator.SetTrigger("R_sub");
-            }
-            else
-            {
-                UIAnimator.SetTrigger("R_add");
-            }
+          
             GoldText.text ="Gold: "+ currMoney.ToString();
             SaplingText.text ="Saplings: "+ currSaplings.ToString();
             GrowRate.text ="Grow Rate: "+currGrowRT.ToString();
@@ -88,6 +82,10 @@ public class BossScript : MonoBehaviour
     {
         GlobalVariables.g.lastSaplings=lastSaplings = currSaplings;
         GlobalVariables.g.currSaplings = currSaplings += v;
+    }
+    void GameSpeed(float v)
+    {
+        GlobalVariables.g.currGrowRT = (int)DayCircle.timeScale;
     }
     
 }

@@ -29,6 +29,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.53, y: 7.01, z: 4.31}
   m_Center: {x: 0, y: 3.31, z: 0}
+--- !u!114 &7968876456612090585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229374752671797147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f2ab1a8d972c046b6ebf3d48b3a97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soil: {fileID: 0}
+  Daycircle: {fileID: 0}
+  treename: 0
+  StartState: 1
+  currTreeState: 1
+  currAge: 0
+  timeToAdult: 0
+  timeToOld: 0
+  baseWoodYield: 0
+  woodYield: 0
+  woodType: 0
+  RefreshTime: 0
 --- !u!1001 &4301946686515271314
 PrefabInstance:
   m_ObjectHideFlags: 0

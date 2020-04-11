@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public BossScript BossScript;
     [Header("MainCamera")]
     public Camera MainCamera;
     [Header("DayCircle")]
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     public Slider DaySlider;
     public Slider HourSlider;
     public Slider speedSlider;
+
     [Header("LeftMenus")]
     
     public float animationTime;
@@ -31,6 +33,8 @@ public class UIManager : MonoBehaviour
     [Header("RightMenus")]
     public bool isSaplingsMenuVisible;
     public GameObject saplingsMenu;
+    public bool isWoodsMenuVisible;
+    public GameObject woodsMenu;
 
     [Header("movement")]
     //one step right is from -46 to -39 so +7
@@ -44,7 +48,9 @@ public class UIManager : MonoBehaviour
     public float[] cameraBoundaries; //0 -left 1- right 2 - bot 3-top;
     public Text speedText;
     public bool isMovementActive;
- 
+    [Header("TopMenus")]
+    public Text GameSpeed;
+    public float gameSpeed;
 
     private void Start()
     {
@@ -80,6 +86,7 @@ public class UIManager : MonoBehaviour
         AreaMenu.SetActive(IsAreaMenuVisible);
         buildingMenu.SetActive(isBuildingMenuVisible);
         saplingsMenu.SetActive(isSaplingsMenuVisible);
+        woodsMenu.SetActive(isWoodsMenuVisible);
     }
     public void AreaButtonClick()
     {
@@ -98,7 +105,7 @@ public class UIManager : MonoBehaviour
     }
     public void SaplingsButtonClick()
     {
-        //isSaplingsMenuVisible = false;
+        isWoodsMenuVisible = false;
         if (!isSaplingsMenuVisible)
         {
 
@@ -107,6 +114,21 @@ public class UIManager : MonoBehaviour
         else
         {
             isSaplingsMenuVisible = false;
+
+        }
+        ShowMenu();
+    }
+    public void WoodsButtonClick()
+    {
+        isSaplingsMenuVisible = false;
+        if (!isWoodsMenuVisible)
+        {
+
+            isWoodsMenuVisible = true;
+        }
+        else
+        {
+            isWoodsMenuVisible = false;
 
         }
         ShowMenu();
@@ -206,7 +228,7 @@ public class UIManager : MonoBehaviour
         MovementContainer.SetActive(isMovementActive);
     }
 
-
+   
 
 
 }
