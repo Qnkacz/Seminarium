@@ -15,6 +15,10 @@ public class tileInfo : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other.gameObject.name);
-        other.gameObject.transform.parent = this.transform;
+        if(other.gameObject.layer!=10)
+        {
+            other.gameObject.transform.parent = this.transform;
+        }
+        
     }
 }

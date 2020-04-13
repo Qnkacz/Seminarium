@@ -29,6 +29,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.53, y: 7.01, z: 4.31}
   m_Center: {x: 0, y: 3.31, z: 0}
+--- !u!23 &-9199181387321957100
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229374752671797147}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!114 &7968876456612090585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soil: {fileID: 0}
-  Daycircle: {fileID: 0}
   treename: 0
   StartState: 1
   currTreeState: 1
@@ -60,6 +97,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7934688434227391694, guid: 8c9fabd0b17692942b93575b65950651,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -134,6 +176,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: brzoza Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8c9fabd0b17692942b93575b65950651,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 76812854415609950, guid: 8c9fabd0b17692942b93575b65950651,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9fabd0b17692942b93575b65950651, type: 3}
