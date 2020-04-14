@@ -15,7 +15,7 @@ public class tileInfo : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other.gameObject.name);
-        if(other.gameObject.tag=="tree" || other.gameObject.tag=="boulder")
+        if(other.gameObject.layer!=10)
         {
             other.gameObject.transform.parent = this.transform;
         }

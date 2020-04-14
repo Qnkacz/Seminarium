@@ -26,6 +26,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevChild: {fileID: 0}
+  targetTile: {fileID: 0}
+  GPC: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  isInair: 1
 --- !u!1001 &3089330372410879537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a5dd7c0e1dcb49b438a6e43a08220462,
+        type: 3}
+      propertyPath: m_TagString
+      value: road
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5dd7c0e1dcb49b438a6e43a08220462, type: 3}

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - GroundBox
+  - tile
+  - tree
+  - building
+  - road
+  - boulder
   layers:
   - Default
   - TransparentFX

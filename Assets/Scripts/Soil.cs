@@ -11,6 +11,6 @@ public class Soil : MonoBehaviour
 
     void Start()
     {
-        child=gameObject.transform.GetChild(0).gameObject;
+        
     }
 }

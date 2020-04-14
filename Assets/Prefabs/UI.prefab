@@ -248,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2275141823031227582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2454,7 +2454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43349adaf0b90d84ba3ce3867c01e683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingsButtons: []
+  BuildingsButtons:
+  - {fileID: 6063141523434198673}
+  - {fileID: 3460181111621036373}
+  - {fileID: 4032667012802396062}
 --- !u!1 &3449499927225624113
 GameObject:
   m_ObjectHideFlags: 0

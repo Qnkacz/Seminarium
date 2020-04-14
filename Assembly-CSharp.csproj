@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\DayNightCircle\LightingManager.cs" />
     <Compile Include="Assets\Scripts\DayNightCircle\LightingPreset.cs" />
     <Compile Include="Assets\Scripts\DropBuildings\GroundPlacementController.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\ObjectToRoadSnap.cs" />
     <Compile Include="Assets\Scripts\DropBuildings\RoadSnap.cs" />
     <Compile Include="Assets\Scripts\GlobalVariables.cs" />
     <Compile Include="Assets\Scripts\Map Generation\MapGenerator.cs" />

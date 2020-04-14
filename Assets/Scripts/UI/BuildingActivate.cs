@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BuildingActivate : MonoBehaviour
 {
+    
    public enum BuildingsOrder
     {
         road,main,shack
