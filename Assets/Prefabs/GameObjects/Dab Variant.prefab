@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soil: {fileID: 0}
+  axe: {fileID: 8505416912498522909, guid: 6a52995e6bfef144981ab786d9001705, type: 3}
+  childAxe: {fileID: 0}
   treename: 1
   StartState: 1
   currTreeState: 2
@@ -102,6 +104,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -6382120451616510307, guid: 1f3a4711570d6a24c982048b61f795b6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb4e35ccf72276d4d911635c1d9621b2, type: 2}
     - target: {fileID: -4216859302048453862, guid: 1f3a4711570d6a24c982048b61f795b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,6 +199,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6758111973976308041, guid: 1f3a4711570d6a24c982048b61f795b6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c542c7c12f85e0242af39e3d3c0cb170, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f3a4711570d6a24c982048b61f795b6, type: 3}
 --- !u!1 &1238534721530952606 stripped

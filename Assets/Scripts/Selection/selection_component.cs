@@ -5,13 +5,18 @@ using UnityEngine;
 public class selection_component : MonoBehaviour
 {
     // Start is called before the first frame update
+    
     void Start()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        var selectedBlock = new MaterialPropertyBlock();
+        selectedBlock.SetColor("_BaseColor", Color.red);
+        GetComponent<Renderer>().SetPropertyBlock(selectedBlock);
     }
 
     private void OnDestroy()
     {
-        GetComponent<Renderer>().material.color = Color.white;
+        var unselectedBlock = new MaterialPropertyBlock();
+        unselectedBlock.SetColor("_BaseColor", Color.white);
+        GetComponent<Renderer>().SetPropertyBlock(unselectedBlock);
     }
 }

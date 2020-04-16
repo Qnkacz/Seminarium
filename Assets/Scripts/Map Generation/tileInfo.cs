@@ -6,6 +6,9 @@ public class tileInfo : MonoBehaviour
 {
     public int x;
     public int y;
+    public int myArrayX;
+    public int myArrayY;
+    public bool hasRoad = false;
    
     public void setCoords(int x, int y)
     {
@@ -14,11 +17,16 @@ public class tileInfo : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.name);
-        if(other.gameObject.tag=="tree" || other.gameObject.tag=="boulder")
+       
+        if(other.gameObject.layer!=10)
         {
             other.gameObject.transform.parent = this.transform;
         }
         
+    }
+    public void MyPlaceInArray(int x, int y)
+    {
+        myArrayX = x;
+        myArrayY = y;
     }
 }

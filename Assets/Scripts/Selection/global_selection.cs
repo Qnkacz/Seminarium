@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class global_selection : MonoBehaviour
 {
-   
+    public bool toCut;
     selected_dictionary selected_table;
     RaycastHit hit;
 
@@ -28,7 +28,7 @@ public class global_selection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        toCut = false;
         selected_table = GetComponent<selected_dictionary>();
         dragSelect = false;
     }
@@ -192,8 +192,21 @@ public class global_selection : MonoBehaviour
         else
         {
             selected_table.addSelected(other.gameObject);
+            if (toCut)
+            {
+                if (other.gameObject.tag == "tree")
+                {
+                    other.gameObject.GetComponent<Tree>().SetToCut();
+                }
+            }
         }
+       
+       
         
+    }
+    public void SetTreesToCut()
+    {
+        toCut = true;
     }
 
 }

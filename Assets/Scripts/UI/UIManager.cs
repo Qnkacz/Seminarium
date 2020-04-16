@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public global_selection globalSelection;
     public BossScript BossScript;
     [Header("MainCamera")]
     public Camera MainCamera;
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour
     public bool IsAreaMenuVisible;
     public bool isBuildingMenuVisible;
     public float menuWidth;
+    
     [Header("RightMenus")]
     public bool isSaplingsMenuVisible;
     public GameObject saplingsMenu;
@@ -227,8 +229,11 @@ public class UIManager : MonoBehaviour
 
         MovementContainer.SetActive(isMovementActive);
     }
+    public void SetToCut()
+    {
+        globalSelection.SetTreesToCut();
+    }
 
-   
 
 
 }

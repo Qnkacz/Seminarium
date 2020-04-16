@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public static MapGenerator mapGenerator;
     public Transform tilePrefab;
     public Transform obstacleprefab;
     public Transform[] trees;
+    public Transform[,] tilesArr;
 
     public Vector2 mapSize;
 
@@ -18,7 +20,10 @@ public class MapGenerator : MonoBehaviour
     private int treeCount;
     private void Start()
     {
+        mapGenerator = this;
+        tilesArr = new Transform[(int)mapSize.x,(int) mapSize.y];
         GenerateMap();
+        Debug.Log(tilesArr[0,0].gameObject.name);
     }
 
     public void GenerateMap()
@@ -54,6 +59,8 @@ public class MapGenerator : MonoBehaviour
                 newTile.GetComponent<tileInfo>().setCoords((int)tilePos.x, (int)tilePos.z);
                 newTile.name = (int)tilePos.x + " " + (int)tilePos.z;
                 newTile.parent = mapHolder;
+                tilesArr[x,y] = newTile;
+                newTile.GetComponent<tileInfo>().MyPlaceInArray(x, y);
             }
         }
 

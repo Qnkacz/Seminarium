@@ -8,7 +8,8 @@ public class Tree : MonoBehaviour
     /// PRAWDZIWY CZAS W SEKUNDACH BRZOZY OD 0 DO 10 LAT TO 31556926
     /// </summary>
     public Soil soil;
-   
+    public GameObject axe;
+    public GameObject childAxe;
     public enum TreeStates
     {
         young,
@@ -30,8 +31,12 @@ public class Tree : MonoBehaviour
     public float woodYield;
     public float woodType;
     public float RefreshTime=100f;
+    public bool setToCut;
+    public bool ableToCut; //TODO
     void Start()
     {
+        setToCut = false;
+        ableToCut = false;
         RefreshTime = 100f;
         TreeTimersSetter();
         SetStartingStage();
@@ -129,4 +134,36 @@ public class Tree : MonoBehaviour
             
         
     }
+    public void SetToCut()
+    {
+        setToCut = true;
+        SpawnAxe();
+    }
+    public void SetAbleToCut()
+    {
+        ableToCut = true;
+    }
+    public void SpawnAxe()
+    {
+        if (childAxe == null)
+        {
+            Instantiate(axe, this.transform);
+            childAxe = this.gameObject.GetComponentInChildren<ObjectFloat>().gameObject;
+            childAxe.transform.position = new Vector3(0, 8, 0);
+        }
+        else
+        {
+            childAxe.SetActive(true);
+        }
+
+    }
+    public void DisableAxe()
+    {
+        if (childAxe != null)
+        {
+            childAxe.SetActive(false);
+        }
+
+    }
+   
 }

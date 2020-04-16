@@ -7,9 +7,9 @@ TagManager:
   - GroundBox
   - tile
   - tree
-  - building
+  - MainBuilding
   - road
-  - boulder
+  - crate
   layers:
   - Default
   - TransparentFX
@@ -24,7 +24,7 @@ TagManager:
   - GroundBox
   - Buiuldings
   - DraggedGameObject
-  - 
+  - Post Procesing
   - 
   - 
   - 

@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soil: {fileID: 0}
+  axe: {fileID: 8505416912498522909, guid: 6a52995e6bfef144981ab786d9001705, type: 3}
+  childAxe: {fileID: 0}
   treename: 0
   StartState: 0
   currTreeState: 0
@@ -97,6 +99,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6499393852134379606, guid: 9382800e8fc6b604a9608bf8367e04e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0ef4a7ef96091c44890f482c9c99680, type: 2}
+    - target: {fileID: -6499393852134379606, guid: 9382800e8fc6b604a9608bf8367e04e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: b085e27f42a56a445a6cfd5733ec14d2, type: 2}
+    - target: {fileID: -6499393852134379606, guid: 9382800e8fc6b604a9608bf8367e04e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b085e27f42a56a445a6cfd5733ec14d2, type: 2}
+    - target: {fileID: -6499393852134379606, guid: 9382800e8fc6b604a9608bf8367e04e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7767c2d39d44ed43bde161b10d5a05e, type: 2}
     - target: {fileID: -4216859302048453862, guid: 9382800e8fc6b604a9608bf8367e04e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,6 +189,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: tree
       objectReference: {fileID: 0}
+    - target: {fileID: 5435078386118383978, guid: 9382800e8fc6b604a9608bf8367e04e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb4e35ccf72276d4d911635c1d9621b2, type: 2}
     - target: {fileID: 6922021962507209588, guid: 9382800e8fc6b604a9608bf8367e04e6,
         type: 3}
       propertyPath: m_Layer

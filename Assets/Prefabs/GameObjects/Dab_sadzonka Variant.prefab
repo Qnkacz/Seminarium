@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soil: {fileID: 0}
+  axe: {fileID: 8505416912498522909, guid: 6a52995e6bfef144981ab786d9001705, type: 3}
+  childAxe: {fileID: 0}
   treename: 1
   StartState: 0
   currTreeState: 0
@@ -172,11 +174,36 @@ PrefabInstance:
       propertyPath: m_TagString
       value: tree
       objectReference: {fileID: 0}
+    - target: {fileID: -464132510119135365, guid: d92efbaa19bcba14caa3ccc64762de05,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb4e35ccf72276d4d911635c1d9621b2, type: 2}
     - target: {fileID: 1625353856665784261, guid: d92efbaa19bcba14caa3ccc64762de05,
         type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4807544715538326035, guid: d92efbaa19bcba14caa3ccc64762de05,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0ef4a7ef96091c44890f482c9c99680, type: 2}
+    - target: {fileID: 4807544715538326035, guid: d92efbaa19bcba14caa3ccc64762de05,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b085e27f42a56a445a6cfd5733ec14d2, type: 2}
+    - target: {fileID: 4807544715538326035, guid: d92efbaa19bcba14caa3ccc64762de05,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: b085e27f42a56a445a6cfd5733ec14d2, type: 2}
+    - target: {fileID: 4807544715538326035, guid: d92efbaa19bcba14caa3ccc64762de05,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c542c7c12f85e0242af39e3d3c0cb170, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92efbaa19bcba14caa3ccc64762de05, type: 3}
 --- !u!1 &6071558437404496939 stripped

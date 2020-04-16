@@ -11,9 +11,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.24733, y: 16.27, z: 7.414658}
+  m_Size: {x: 6.24733, y: 4.9368563, z: 7.414658}
   m_Center: {x: 1.0298885, y: 1.2237711, z: -0.9211482}
---- !u!114 &-1752216230470261464
+--- !u!135 &7337959245835420570
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123042916425867897}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 35
+  m_Center: {x: 1.0298884, y: 1.2237711, z: -0.92114806}
+--- !u!114 &-6146145875090274670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,9 +35,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 5123042916425867897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae04140acf34b1f45b934e156691af5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b419f89bbb5a2149ba44b3b8392aaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5664584781240245755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123042916425867897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886ebe41f53ff3429fda97303e89800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevChild: {fileID: 0}
+  targetTile: {fileID: 0}
+  GPC: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  isInair: 1
+  canFunction: 0
+  tileInfo: {fileID: 0}
+  adjtiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  exclamation: {fileID: 8045198257219815713, guid: 639aea247bfdf784fa44c46236471e6f,
+    type: 3}
+  childExclamation: {fileID: 0}
 --- !u!1001 &3763137326392966000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +142,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 8e4023bc61bc00843bb96accb715b63a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 50cf84501fb56f24f8a8fb53fd1126ae, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 8e4023bc61bc00843bb96accb715b63a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e7df74e84dd7265499440a575a9470ee, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 8e4023bc61bc00843bb96accb715b63a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd97ad5d097ac164785c3e8a3ffc9463, type: 2}
     - target: {fileID: -927199367670048503, guid: 8e4023bc61bc00843bb96accb715b63a,
         type: 3}
       propertyPath: m_Name
@@ -115,7 +170,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8e4023bc61bc00843bb96accb715b63a,
         type: 3}
       propertyPath: m_TagString
-      value: building
+      value: crate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e4023bc61bc00843bb96accb715b63a, type: 3}

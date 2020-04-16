@@ -87,5 +87,4 @@ public class BossScript : MonoBehaviour
     {
         GlobalVariables.g.currGrowRT = (int)DayCircle.timeScale;
     }
-    
 }

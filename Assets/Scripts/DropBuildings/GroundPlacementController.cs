@@ -32,10 +32,10 @@ public class GroundPlacementController : MonoBehaviour
                 currPlacableObject.GetComponent<RoadSnap>().Snap();
                 BA.button_ActivateMainBuildingButton();
             }
-            if(currPlacableObject.GetComponent<ObjectToRoadSnap>()!=null)
+            if(currPlacableObject.GetComponent<BuildingToRoad>()!=null)
             {
+                currPlacableObject.GetComponent<BuildingToRoad>().Snap();
                 BA.button_ActivateShackBuildingButton();
-                currPlacableObject.GetComponent<ObjectToRoadSnap>().Snap();
             }
             currPlacableObject = null;
             
@@ -48,10 +48,14 @@ public class GroundPlacementController : MonoBehaviour
         RaycastHit hitInfo;
         if(Physics.Raycast(ray,out hitInfo))
         {
-            if(hitInfo.transform.gameObject.layer!=12)
+           
+            if (hitInfo.transform.gameObject.layer!=12)
             {
                 currPlacableObject.transform.position = hitInfo.point;
+                
             }
+            
+            
         }
     }
 
