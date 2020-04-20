@@ -20,7 +20,11 @@ public class tileInfo : MonoBehaviour
        
         if(other.gameObject.layer!=10)
         {
-            other.gameObject.transform.parent = this.transform;
+            if(other.gameObject.tag!="crate")
+            {
+                other.gameObject.transform.parent = this.transform;
+            }
+           
         }
         
     }
