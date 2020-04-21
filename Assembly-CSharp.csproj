@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Selection\Utils.cs" />
     <Compile Include="Assets\Scripts\Soil.cs" />
     <Compile Include="Assets\Scripts\Tree.cs" />
+    <Compile Include="Assets\Scripts\treeCutManager.cs" />
     <Compile Include="Assets\Scripts\UI\BuildingActivate.cs" />
     <Compile Include="Assets\Scripts\UI\GameLoaderScript.cs" />
     <Compile Include="Assets\Scripts\UI\OptionMenuSliderScript.cs" />

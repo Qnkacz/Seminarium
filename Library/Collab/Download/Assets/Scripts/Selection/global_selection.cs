@@ -80,9 +80,8 @@ public class global_selection : MonoBehaviour
 
                 //generate the mesh
                 selectionMesh = generateSelectionMesh(verts);
-               
+
                 selectionBox = gameObject.AddComponent<MeshCollider>();
-                selectionBox.tag = "crate";
                 selectionBox.sharedMesh = selectionMesh;
                 selectionBox.convex = true;
                 selectionBox.isTrigger = true;
@@ -180,7 +179,7 @@ public class global_selection : MonoBehaviour
         Mesh selectionMesh = new Mesh();
         selectionMesh.vertices = verts;
         selectionMesh.triangles = tris;
-        
+
         return selectionMesh;
     }
 

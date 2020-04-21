@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
+    public static BossScript BS;
     [Header("Variables")]
     public int lastMoney;
     public int currMoney;
@@ -13,10 +14,12 @@ public class BossScript : MonoBehaviour
     public int lastGrowRt;
     public int currGrowRT;
     public int GUIRefreshRate;
+    public int wood;
     [Header("GUI text objects")]
     public Text GoldText;
     public Text SaplingText;
     public Text GrowRate;
+    public Text WoodYield;
 
     [Header("ObjectReferencess")]
     public GameObject UI;
@@ -25,6 +28,7 @@ public class BossScript : MonoBehaviour
     public DayCircle DayCircle;
     void Start()
     {
+        BS = this;
         UIManager = UI.GetComponent<UIManager>();
         lastMoney=currMoney = GlobalVariables.startMoneyAmount;
         lastSaplings=currSaplings =GlobalVariables.StarSaplingAmount;
@@ -58,6 +62,7 @@ public class BossScript : MonoBehaviour
             GoldText.text ="Gold: "+ currMoney.ToString();
             SaplingText.text ="Saplings: "+ currSaplings.ToString();
             GrowRate.text ="Grow Rate: "+currGrowRT.ToString();
+            WoodYield.text = "Wood: " + wood.ToString();
             yield return new WaitForSecondsRealtime(refreshRate);
 
 
@@ -87,4 +92,5 @@ public class BossScript : MonoBehaviour
     {
         GlobalVariables.g.currGrowRT = (int)DayCircle.timeScale;
     }
+    
 }

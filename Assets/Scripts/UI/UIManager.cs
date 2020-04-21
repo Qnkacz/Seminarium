@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
     public bool isSaplingsMenuVisible;
     public GameObject saplingsMenu;
     public bool isWoodsMenuVisible;
-    public GameObject woodsMenu;
 
     [Header("movement")]
     //one step right is from -46 to -39 so +7
@@ -88,7 +87,6 @@ public class UIManager : MonoBehaviour
         AreaMenu.SetActive(IsAreaMenuVisible);
         buildingMenu.SetActive(isBuildingMenuVisible);
         saplingsMenu.SetActive(isSaplingsMenuVisible);
-        woodsMenu.SetActive(isWoodsMenuVisible);
     }
     public void AreaButtonClick()
     {
@@ -107,7 +105,7 @@ public class UIManager : MonoBehaviour
     }
     public void SaplingsButtonClick()
     {
-        isWoodsMenuVisible = false;
+        
         if (!isSaplingsMenuVisible)
         {
 
