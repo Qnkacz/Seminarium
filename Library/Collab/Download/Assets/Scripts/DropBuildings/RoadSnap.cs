@@ -27,7 +27,6 @@ public class RoadSnap : MonoBehaviour
         {
 
         }
-       
         
 
     }
@@ -45,6 +44,7 @@ public class RoadSnap : MonoBehaviour
                 Destroy(prevChild);
                 prevChild = null;
                 isInair = false;
+                
             }
             else
             {
@@ -55,6 +55,6 @@ public class RoadSnap : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        
+        GlobalVariables.g.surface.BuildNavMesh();
     }
 }

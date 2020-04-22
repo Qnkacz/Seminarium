@@ -86,7 +86,7 @@ public class MapGenerator : MonoBehaviour
 
     Vector3 CoordToPos(int x, int y)
     {
-        return new Vector3(-mapSize.x / 2 + .5f + x, 0, -mapSize.y / 2 + .5f + y);
+        return new Vector3(-mapSize.x/2 + .5f + x*2, 0, -mapSize.y/2  + .5f + y*2);
     }
 
     public Coord getRandCoord()

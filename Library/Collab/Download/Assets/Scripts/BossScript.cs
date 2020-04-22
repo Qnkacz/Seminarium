@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
+    public static BossScript BS;
     [Header("Variables")]
     public int lastMoney;
     public int currMoney;
@@ -13,17 +14,21 @@ public class BossScript : MonoBehaviour
     public int lastGrowRt;
     public int currGrowRT;
     public int GUIRefreshRate;
+    public int wood;
     [Header("GUI text objects")]
     public Text GoldText;
     public Text SaplingText;
     public Text GrowRate;
+    public Text WoodYield;
 
     [Header("ObjectReferencess")]
     public GameObject UI;
     public UIManager UIManager;
     public Animator UIAnimator;
+    public DayCircle DayCircle;
     void Start()
     {
+        BS = this;
         UIManager = UI.GetComponent<UIManager>();
         lastMoney=currMoney = GlobalVariables.startMoneyAmount;
         lastSaplings=currSaplings =GlobalVariables.StarSaplingAmount;
@@ -53,17 +58,11 @@ public class BossScript : MonoBehaviour
             {
                 UIAnimator.SetTrigger("s_add");
             }
-            if (lastGrowRt >= currGrowRT)
-            {
-                UIAnimator.SetTrigger("R_sub");
-            }
-            else
-            {
-                UIAnimator.SetTrigger("R_add");
-            }
-            GoldText.text = currMoney.ToString();
-            SaplingText.text = currSaplings.ToString();
-            GrowRate.text = currGrowRT.ToString();
+          
+            GoldText.text ="Gold: "+ currMoney.ToString();
+            SaplingText.text ="Saplings: "+ currSaplings.ToString();
+            GrowRate.text ="Grow Rate: "+currGrowRT.ToString();
+            WoodYield.text = "Wood: " + wood.ToString();
             yield return new WaitForSecondsRealtime(refreshRate);
 
 
@@ -88,6 +87,10 @@ public class BossScript : MonoBehaviour
     {
         GlobalVariables.g.lastSaplings=lastSaplings = currSaplings;
         GlobalVariables.g.currSaplings = currSaplings += v;
+    }
+    void GameSpeed(float v)
+    {
+        GlobalVariables.g.currGrowRT = (int)DayCircle.timeScale;
     }
     
 }

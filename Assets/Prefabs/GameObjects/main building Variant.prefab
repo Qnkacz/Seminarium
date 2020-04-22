@@ -94,6 +94,7 @@ MonoBehaviour:
   exclamation: {fileID: 8045198257219815713, guid: 639aea247bfdf784fa44c46236471e6f,
     type: 3}
   childExclamation: {fileID: 0}
+  AOE: {fileID: 0}
 --- !u!1001 &8662222065134817944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,17 +165,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -2397996973257786244, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}

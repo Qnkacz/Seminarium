@@ -14,6 +14,7 @@ public class BuildingToRoad : MonoBehaviour
     public tileInfo[] adjtiles = new tileInfo[4];
     public GameObject exclamation;
     public GameObject childExclamation;
+    public GameObject AOE;
     private void OnTriggerEnter(Collider other)
     {
         if (isInair)
@@ -46,7 +47,7 @@ public class BuildingToRoad : MonoBehaviour
             offset = new Vector3(0, .02f, 0);
             if (this.gameObject.tag == "MainBuilding")
             {
-                offset = new Vector3(0, .02f, .3f);
+                offset = new Vector3(0, .02f, .6f);
             }
             this.gameObject.transform.position = targetTile.transform.position + offset;
 
@@ -56,7 +57,8 @@ public class BuildingToRoad : MonoBehaviour
             GetAdjTiles();
             if(this.gameObject.tag=="crate")
             {
-                this.gameObject.GetComponent<SphereCollider>().enabled = true;
+                AOE.SetActive(true);
+                AOE.layer = this.gameObject.layer;
             }
         }
         else
@@ -108,8 +110,7 @@ public class BuildingToRoad : MonoBehaviour
     {
         if(childExclamation==null)
         {
-            Instantiate(exclamation, this.transform);
-            childExclamation = this.gameObject.GetComponentInChildren<ObjectFloat>().gameObject;
+            childExclamation= Instantiate(exclamation, this.transform);
         }
         else
         {

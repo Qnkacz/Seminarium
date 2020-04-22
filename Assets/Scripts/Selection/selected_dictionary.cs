@@ -14,7 +14,7 @@ public class selected_dictionary : MonoBehaviour
         {
             selectedTable.Add(id, go);
             go.AddComponent<selection_component>();
-           // Debug.Log("Added " + id + " to selected dict");
+            Debug.Log("Added " + id + " to selected dict");
         }
     }
 

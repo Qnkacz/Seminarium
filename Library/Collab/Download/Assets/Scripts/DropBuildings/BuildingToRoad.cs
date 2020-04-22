@@ -109,7 +109,6 @@ public class BuildingToRoad : MonoBehaviour
         if(childExclamation==null)
         {
             Instantiate(exclamation, this.transform);
-            childExclamation = this.gameObject.GetComponentInChildren<ObjectFloat>().gameObject;
         }
         else
         {

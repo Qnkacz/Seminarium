@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soil: {fileID: 0}
+  axe: {fileID: 8505416912498522909, guid: 6a52995e6bfef144981ab786d9001705, type: 3}
+  childAxe: {fileID: 0}
   treename: 0
   StartState: 1
   currTreeState: 1

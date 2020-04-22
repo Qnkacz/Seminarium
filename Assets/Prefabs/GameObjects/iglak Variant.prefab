@@ -82,6 +82,7 @@ MonoBehaviour:
   soil: {fileID: 0}
   axe: {fileID: 8505416912498522909, guid: 6a52995e6bfef144981ab786d9001705, type: 3}
   childAxe: {fileID: 0}
+  asignedCrateBuilding: {fileID: 0}
   treename: 2
   StartState: 1
   currTreeState: 2
@@ -90,8 +91,11 @@ MonoBehaviour:
   timeToOld: 0
   baseWoodYield: 0
   woodYield: 0
-  woodType: 0
   RefreshTime: 0
+  setToCut: 0
+  ableToCut: 0
+  cutSignal: 0
+  LM: {fileID: 0}
 --- !u!1001 &4216760772002138499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,17 +171,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 27a51fae17b535745aea4a4ec9cca0d4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 27a51fae17b535745aea4a4ec9cca0d4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 27a51fae17b535745aea4a4ec9cca0d4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -1526821854930223906, guid: 27a51fae17b535745aea4a4ec9cca0d4,
         type: 3}

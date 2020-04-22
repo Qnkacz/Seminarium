@@ -10,6 +10,7 @@ public class Tree : MonoBehaviour
     public Soil soil;
     public GameObject axe;
     public GameObject childAxe;
+    public CrateBuilding asignedCrateBuilding;
     public enum TreeStates
     {
         young,
@@ -29,19 +30,15 @@ public class Tree : MonoBehaviour
     public float timeToOld;
     public float baseWoodYield;
     public float woodYield;
-    public float woodType;
     public float RefreshTime=100f;
     public bool setToCut;
     public bool ableToCut; //TODO
 
     [Header("Tree cut")]
     public bool cutSignal;
-    public int CutDownTime;
     public LightingManager LM;
     void Start()
     {
-
-        CutDownTime = 4;
         cutSignal = true;
         setToCut = false;
         ableToCut = false;
@@ -57,7 +54,7 @@ public class Tree : MonoBehaviour
         if(ableToCut&&setToCut&&cutSignal)
         {
             cutSignal = false;
-            StartCoroutine(startCutting());
+            treeCutManager.TDM.treeQueue.Enqueue(this.gameObject);
         }
     }
     public void SetStartingStage()
@@ -111,7 +108,7 @@ public class Tree : MonoBehaviour
                 {
                     woodYield = baseWoodYield * 1.5f;
                 }
-                woodType = 0;
+                
                 break;
             case treeClass.brzoza:
                 if (currTreeState == TreeStates.adult)
@@ -122,7 +119,7 @@ public class Tree : MonoBehaviour
                 {
                     woodYield = baseWoodYield * 1.5f;
                 }
-                woodType = 1;
+                
                 break;
             case treeClass.dab:
                 if (currTreeState == TreeStates.adult)
@@ -134,7 +131,7 @@ public class Tree : MonoBehaviour
                     woodYield = baseWoodYield * 1.5f;
                 }
 
-                woodType = 2;
+                
                 break;
         }
     }
@@ -162,8 +159,6 @@ public class Tree : MonoBehaviour
         if (childAxe == null)
         {
             Instantiate(axe, this.transform);
-            childAxe = this.gameObject.GetComponentInChildren<ObjectFloat>().gameObject;
-            childAxe.transform.position = new Vector3(0, 8, 0);
         }
         else
         {
@@ -179,10 +174,10 @@ public class Tree : MonoBehaviour
         }
 
     }
-    public IEnumerator startCutting()
+    public void addResources()
     {
-        yield return new WaitForSeconds(CutDownTime);
-        //dodaj drewno
-        Destroy(this.gameObject);
+        asignedCrateBuilding.WoodStored +=(int) woodYield;
     }
+    
+
 }
