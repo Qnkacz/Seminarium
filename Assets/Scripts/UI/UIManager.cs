@@ -52,12 +52,16 @@ public class UIManager : MonoBehaviour
     [Header("TopMenus")]
     public Text GameSpeed;
     public float gameSpeed;
-
     private void Start()
     {
-        StartUp();
+
+        Invoke("StartUp", .02f);
     }
-  private void StartUp()
+    private void Update()
+    {
+        
+    }
+    private void StartUp()
     {
         
         IsAreaMenuVisible = false;
@@ -65,10 +69,10 @@ public class UIManager : MonoBehaviour
         isSaplingsMenuVisible = false;
         baseMovementSpeed = 7f;
         menuWidth = buildingRect.rect.width;
-        cameraBoundaries[0] = -46f;
-        cameraBoundaries[1] = 47f;
-        cameraBoundaries[2] = -54f;
-        cameraBoundaries[3] = 42f;
+        cameraBoundaries[0] = MapGenerator.mapGenerator.tile_botleft.transform.position.x + 3.5f;
+        cameraBoundaries[1] = MapGenerator.mapGenerator.tile_toplight.transform.position.x - 4.5f;
+        cameraBoundaries[2] = MapGenerator.mapGenerator.tile_botleft.transform.position.z - 4.5f; //done
+        cameraBoundaries[3] = MapGenerator.mapGenerator.tile_toplight.transform.position.z - 4.5f;//140f;
         isMovementActive = true;
         speedText.text = " Camera Speed       " + speedSlider.value.ToString("f2");
     }

@@ -178,6 +178,15 @@ public class Tree : MonoBehaviour
     {
         asignedCrateBuilding.WoodStored +=(int) woodYield;
     }
-    
-
+    public void releaseSoil()
+    {
+        soil.child = null;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="tile")
+        {
+            soil = other.gameObject.GetComponent<Soil>();
+        }
+    }
 }

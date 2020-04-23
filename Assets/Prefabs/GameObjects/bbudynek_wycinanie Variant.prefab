@@ -37,6 +37,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  dummy: {fileID: 1424504409787636318, guid: c80bce32a4ba50848a5413f5c9592259, type: 3}
   exclamation: {fileID: 8045198257219815713, guid: 639aea247bfdf784fa44c46236471e6f,
     type: 3}
   childExclamation: {fileID: 0}
@@ -132,7 +133,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 120
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4871182016734922482
 MonoBehaviour:

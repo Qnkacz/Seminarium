@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\DropBuildings\CrateBuilding.cs" />
     <Compile Include="Assets\Scripts\DropBuildings\GroundPlacementController.cs" />
     <Compile Include="Assets\Scripts\DropBuildings\RoadSnap.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\StorageSnap.cs" />
     <Compile Include="Assets\Scripts\GlobalVariables.cs" />
     <Compile Include="Assets\Scripts\LocalNavMeshBuilder.cs" />
     <Compile Include="Assets\Scripts\Map Generation\MapGenerator.cs" />

@@ -9,11 +9,14 @@ public class MapGenerator : MonoBehaviour
     public Transform obstacleprefab;
     public Transform[] trees;
     public Transform[,] tilesArr;
+    public GameObject tile_botleft;
+    public GameObject tile_toplight;
 
     public Vector2 mapSize;
 
     List<Coord> allTileCoords;
     Queue<Coord> shuffledTileCoords;
+    public UIManager uimanager;
 
     public int seed;
     public int obstacleCount;
@@ -23,7 +26,8 @@ public class MapGenerator : MonoBehaviour
         mapGenerator = this;
         tilesArr = new Transform[(int)mapSize.x,(int) mapSize.y];
         GenerateMap();
-        Debug.Log(tilesArr[0,0].gameObject.name);
+        tile_botleft = tilesArr[0, 0].gameObject;
+        tile_toplight = tilesArr[tilesArr.GetLength(0)-1,tilesArr.GetLength(1)-1].gameObject;
     }
 
     public void GenerateMap()

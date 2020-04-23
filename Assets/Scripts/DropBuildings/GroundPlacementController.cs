@@ -9,7 +9,7 @@ public class GroundPlacementController : MonoBehaviour
     public GameObject[] PlacableObjectPrefab;
     public enum Buildings
     {
-        road, shack,mainBuilding
+        road, shack,mainBuilding,storage
     }
     public GameObject currPlacableObject;
 
@@ -78,6 +78,14 @@ public class GroundPlacementController : MonoBehaviour
     public void button_MainBuildingButton()
     {
         if (currPlacableObject == null) currPlacableObject = Instantiate(PlacableObjectPrefab[(int)Buildings.mainBuilding]);
+        else Destroy(currPlacableObject);
+    }
+    public void button_StorageButton()
+    {
+        if (currPlacableObject == null)
+        {
+            currPlacableObject = Instantiate(PlacableObjectPrefab[(int)Buildings.storage]);
+        }
         else Destroy(currPlacableObject);
     }
 }

@@ -6,6 +6,8 @@ public class CrateBuilding : MonoBehaviour
 {
     public List<GameObject> TreesInarea=new List<GameObject>();
     public int WoodStored;
+    public int baseWoodStorage = 4000;
+    public int ExtendedStorage;
     private void OnTriggerEnter(Collider other)
     {
             if (other.gameObject.tag == "tree")

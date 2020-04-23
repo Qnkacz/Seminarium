@@ -34,6 +34,7 @@ public class treeCutManager : MonoBehaviour
         {
             GameObject treetodestroy = treeQueue.Dequeue();
             treetodestroy.GetComponent<Tree>().addResources();
+            treetodestroy.GetComponent<Tree>().releaseSoil();
             Destroy(treetodestroy);
         }
         else

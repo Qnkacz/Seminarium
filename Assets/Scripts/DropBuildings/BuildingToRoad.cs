@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class BuildingToRoad : MonoBehaviour
     public bool canFunction=false;
     public tileInfo tileInfo;
     public tileInfo[] adjtiles = new tileInfo[4];
+    public tileInfo dummy;
     public GameObject exclamation;
     public GameObject childExclamation;
     public GameObject AOE;
@@ -72,7 +74,7 @@ public class BuildingToRoad : MonoBehaviour
     {
         while(true)
         {
-            if (adjtiles[0].hasRoad == true || adjtiles[1].hasRoad == true || adjtiles[2].hasRoad == true || adjtiles[3].hasRoad == true)
+            if (adjtiles[0].hasRoad == true|| adjtiles[1].hasRoad == true || adjtiles[2].hasRoad == true || adjtiles[3].hasRoad == true)
             {
                 canFunction = true;
                 DisableExclamationmark();
@@ -102,6 +104,13 @@ public class BuildingToRoad : MonoBehaviour
         if (tileInfo.myArrayY - 1 >= 0) //dol
         {
             adjtiles[3] = MapGenerator.mapGenerator.tilesArr[tileInfo.myArrayX, tileInfo.myArrayY - 1].GetComponent<tileInfo>();
+        }
+        for (int i = 0; i < adjtiles.Length-1; i++)
+        {
+            if(adjtiles[i]==null)
+            {
+                adjtiles[i] = dummy;
+            }
         }
         StartCoroutine(SeeifFunctional());
     }

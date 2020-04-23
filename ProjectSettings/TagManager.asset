@@ -11,6 +11,7 @@ TagManager:
   - road
   - crate
   - AOE
+  - Storage
   layers:
   - Default
   - TransparentFX
