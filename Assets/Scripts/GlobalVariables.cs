@@ -31,6 +31,10 @@ public class GlobalVariables : MonoBehaviour
     public Slider growRateSlider;
     [Header("navigation")]
     public NavMeshSurface surface;
+    [Header("Saplings")]
+    public int BirchSapling;
+    public int SpruceSapling;
+    public int OakSapling;
 
     private 
     void Start()
@@ -46,6 +50,7 @@ public class GlobalVariables : MonoBehaviour
             StarSaplingAmount = (int)SaplingSlider.value;
             StartGrowRate = (int)growRateSlider.value;
         }
+        BirchSapling = SpruceSapling = OakSapling = 0;
     }
     public void ChangeMoney()
     {

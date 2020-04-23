@@ -182,6 +182,18 @@ public class Tree : MonoBehaviour
         Instantiate(storage, this.gameObject.transform.position, Quaternion.identity);
         asignedCrateBuilding.Storage_add();
         asignedCrateBuilding.StartCoroutine(asignedCrateBuilding.overflowWoodDestroy());
+        switch(treename)
+        {
+            case treeClass.brzoza:
+                GlobalVariables.g.BirchSapling+=2;
+                break;
+            case treeClass.dab:
+                GlobalVariables.g.OakSapling += 2;
+                break;
+            case treeClass.iglak:
+                GlobalVariables.g.SpruceSapling += 2;
+                break;
+        }
     }
     public void releaseSoil()
     {

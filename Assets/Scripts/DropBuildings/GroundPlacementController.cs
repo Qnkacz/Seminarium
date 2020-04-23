@@ -7,9 +7,14 @@ public class GroundPlacementController : MonoBehaviour
 {
     public BuildingActivate BA;
     public GameObject[] PlacableObjectPrefab;
+    public GameObject[] PlacableSaplings;
     public enum Buildings
     {
         road, shack,mainBuilding,storage
+    }
+    public enum Saplings
+    {
+        oak, birch, spruce
     }
     public GameObject currPlacableObject;
 
@@ -92,4 +97,29 @@ public class GroundPlacementController : MonoBehaviour
         }
         else Destroy(currPlacableObject);
     }
+    public void button_sapling_Birch()
+    {
+        if(currPlacableObject==null)
+        {
+            currPlacableObject = Instantiate(PlacableSaplings[(int)Saplings.birch]);
+        }
+        else Destroy(currPlacableObject);
+    }
+    public void button_sapling_Oak()
+    {
+        if (currPlacableObject == null)
+        {
+            currPlacableObject = Instantiate(PlacableSaplings[(int)Saplings.oak]);
+        }
+        else Destroy(currPlacableObject);
+    }
+    public void button_sapling_Spruce()
+    {
+        if (currPlacableObject == null)
+        {
+            currPlacableObject = Instantiate(PlacableSaplings[(int)Saplings.spruce]);
+        }
+        else Destroy(currPlacableObject);
+    }
 }
+

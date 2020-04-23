@@ -20,6 +20,9 @@ public class BossScript : MonoBehaviour
     public Text SaplingText;
     public Text GrowRate;
     public Text WoodYield;
+    public Text BirchSaplings;
+    public Text OakSaplings;
+    public Text SpriceSaplings;
 
     [Header("ObjectReferencess")]
     public GameObject UI;
@@ -63,6 +66,9 @@ public class BossScript : MonoBehaviour
             SaplingText.text ="Saplings: "+ currSaplings.ToString();
             GrowRate.text ="Grow Rate: "+currGrowRT.ToString();
             WoodYield.text = "Wood: " + wood.ToString();
+            SpriceSaplings.text = "Spruce: " + GlobalVariables.g.SpruceSapling;
+            OakSaplings.text = "Oak: " + GlobalVariables.g.OakSapling;
+            BirchSaplings.text = "Birch: " + GlobalVariables.g.BirchSapling;
             yield return new WaitForSecondsRealtime(refreshRate);
 
 
