@@ -96,6 +96,7 @@ MonoBehaviour:
   ableToCut: 0
   cutSignal: 0
   LM: {fileID: 0}
+  storage: {fileID: 5890954702675923809, guid: 230873d6c71400041b8da49dee7b5dd8, type: 3}
 --- !u!1001 &8089337377656394649
 PrefabInstance:
   m_ObjectHideFlags: 0

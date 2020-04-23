@@ -20,7 +20,7 @@ public class tileInfo : MonoBehaviour
        
         if(other.gameObject.layer!=10)
         {
-            if(other.gameObject.tag!="crate" && other.gameObject.tag!="AOE")
+            if(other.gameObject.tag!="crate" && other.gameObject.tag!="AOE" &&other.gameObject.tag!="Storage")
             {
                 other.gameObject.transform.parent = this.transform;
             }

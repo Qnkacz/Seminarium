@@ -32,11 +32,12 @@ public class Tree : MonoBehaviour
     public float woodYield;
     public float RefreshTime=100f;
     public bool setToCut;
-    public bool ableToCut; //TODO
+    public bool ableToCut; 
 
     [Header("Tree cut")]
     public bool cutSignal;
     public LightingManager LM;
+    public GameObject storage;
     void Start()
     {
         cutSignal = true;
@@ -177,6 +178,10 @@ public class Tree : MonoBehaviour
     public void addResources()
     {
         asignedCrateBuilding.WoodStored +=(int) woodYield;
+        asignedCrateBuilding.TreesInarea.Remove(this.gameObject);
+        Instantiate(storage, this.gameObject.transform.position, Quaternion.identity);
+        asignedCrateBuilding.Storage_add();
+        asignedCrateBuilding.StartCoroutine(asignedCrateBuilding.overflowWoodDestroy());
     }
     public void releaseSoil()
     {

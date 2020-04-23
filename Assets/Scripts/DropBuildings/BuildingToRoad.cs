@@ -30,6 +30,7 @@ public class BuildingToRoad : MonoBehaviour
             {
                 prevChild = null;
             }
+           
         }
         else
         {
@@ -57,11 +58,13 @@ public class BuildingToRoad : MonoBehaviour
             prevChild = null;
             isInair = false;
             GetAdjTiles();
-            if(this.gameObject.tag=="crate")
+            StartCoroutine(SeeifFunctional());
+            if (this.gameObject.tag=="crate")
             {
                 AOE.SetActive(true);
                 AOE.layer = this.gameObject.layer;
             }
+            targetTile.GetComponent<Soil>().child = this.gameObject;
         }
         else
         {
@@ -105,14 +108,14 @@ public class BuildingToRoad : MonoBehaviour
         {
             adjtiles[3] = MapGenerator.mapGenerator.tilesArr[tileInfo.myArrayX, tileInfo.myArrayY - 1].GetComponent<tileInfo>();
         }
-        for (int i = 0; i < adjtiles.Length-1; i++)
+        for (int i = 0; i < adjtiles.Length; i++)
         {
             if(adjtiles[i]==null)
             {
                 adjtiles[i] = dummy;
             }
         }
-        StartCoroutine(SeeifFunctional());
+        
     }
 
     public void SpawnExplamationMark()

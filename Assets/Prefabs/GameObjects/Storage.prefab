@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5565685843898087356}
   - component: {fileID: 2449973169831630608}
   - component: {fileID: 3952234100127083593}
-  m_Layer: 12
+  - component: {fileID: 3336933664777938196}
+  m_Layer: 2
   m_Name: StorageBodyplacegolder
   m_TagString: Storage
   m_Icon: {fileID: 0}
@@ -90,8 +91,24 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.35, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3336933664777938196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577797935971027018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6182fc9f0a270c489fde7eca9b91243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prev_tile: {fileID: 0}
+  prev_soil: {fileID: 0}
+  targetTile: {fileID: 0}
+  targettile_soil: {fileID: 0}
 --- !u!1 &5890954702675923809
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9192804339728543981}
-  m_Layer: 12
+  m_Layer: 2
   m_Name: Storage
   m_TagString: Storage
   m_Icon: {fileID: 0}

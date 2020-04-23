@@ -38,6 +38,10 @@ public class GroundPlacementController : MonoBehaviour
                 currPlacableObject.GetComponent<BuildingToRoad>().Snap();
                 BA.button_ActivateShackBuildingButton();
             }
+            if(currPlacableObject.GetComponentInChildren<StorageSnap>()!=null)
+            {
+                currPlacableObject.GetComponentInChildren<StorageSnap>().Snap();
+            }
             currPlacableObject = null;
             
         }
