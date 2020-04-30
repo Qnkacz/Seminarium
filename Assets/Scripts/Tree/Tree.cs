@@ -36,8 +36,6 @@ public class Tree : MonoBehaviour
 
     [Header("Tree cut")]
     public bool cutSignal;
-    public LightingManager LM;
-    public GameObject storage;
     void Start()
     {
         cutSignal = true;
@@ -52,7 +50,7 @@ public class Tree : MonoBehaviour
     }
     private void Update()
     {
-        if(ableToCut&&setToCut&&cutSignal)
+        if(ableToCut&&setToCut&&cutSignal&& currTreeState!=TreeStates.young)
         {
             cutSignal = false;
             treeCutManager.TDM.treeQueue.Enqueue(this.gameObject);
@@ -143,7 +141,6 @@ public class Tree : MonoBehaviour
             
             yield return new WaitForSeconds(time);
             currAge += time;
-            //Debug.Log("Kappa po: " + time);
         }
     }
     public void SetToCut()
@@ -178,9 +175,8 @@ public class Tree : MonoBehaviour
     public void addResources()
     {
         asignedCrateBuilding.WoodStored +=(int) woodYield;
+        GlobalVariables.g.WoodValue += (int)woodYield;
         asignedCrateBuilding.TreesInarea.Remove(this.gameObject);
-        Instantiate(storage, this.gameObject.transform.position, Quaternion.identity);
-        asignedCrateBuilding.Storage_add();
         asignedCrateBuilding.StartCoroutine(asignedCrateBuilding.overflowWoodDestroy());
         switch(treename)
         {
@@ -194,6 +190,8 @@ public class Tree : MonoBehaviour
                 GlobalVariables.g.SpruceSapling += 2;
                 break;
         }
+        BossScript.BS.CheckSaplings();
+        BossScript.BS.ChangeWood();
     }
     public void releaseSoil()
     {
@@ -206,4 +204,5 @@ public class Tree : MonoBehaviour
             soil = other.gameObject.GetComponent<Soil>();
         }
     }
+   
 }

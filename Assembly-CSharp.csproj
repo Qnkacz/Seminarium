@@ -64,7 +64,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CameraLight.cs" />
+    <Compile Include="Assets\GlobalMoneymanager.cs" />
     <Compile Include="Assets\ObjectFloat.cs" />
+    <Compile Include="Assets\Scripts\BossScript.cs" />
+    <Compile Include="Assets\Scripts\DayNightCircle\DayCircle.cs" />
+    <Compile Include="Assets\Scripts\DayNightCircle\LightingManager.cs" />
+    <Compile Include="Assets\Scripts\DayNightCircle\LightingPreset.cs" />
+    <Compile Include="Assets\Scripts\Delivery\Truck.cs" />
+    <Compile Include="Assets\Scripts\Delivery\TruckManager.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\BuildingToRoad.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\CrateBuilding.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\GroundPlacementController.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\RoadSnap.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\SaplingSnap.cs" />
+    <Compile Include="Assets\Scripts\DropBuildings\StorageSnap.cs" />
+    <Compile Include="Assets\Scripts\GlobalVariables.cs" />
+    <Compile Include="Assets\Scripts\Map Generation\MapGenerator.cs" />
+    <Compile Include="Assets\Scripts\Map Generation\ObstacleInfo.cs" />
+    <Compile Include="Assets\Scripts\Map Generation\tileInfo.cs" />
+    <Compile Include="Assets\Scripts\Map Generation\Utility.cs" />
+    <Compile Include="Assets\Scripts\Placeholder.cs" />
+    <Compile Include="Assets\Scripts\Selection\global_selection.cs" />
+    <Compile Include="Assets\Scripts\Selection\selected_dictionary.cs" />
+    <Compile Include="Assets\Scripts\Selection\selection_component.cs" />
+    <Compile Include="Assets\Scripts\Selection\Utils.cs" />
+    <Compile Include="Assets\Scripts\Tree\Soil.cs" />
+    <Compile Include="Assets\Scripts\Tree\Tree.cs" />
+    <Compile Include="Assets\Scripts\Tree\treeCutManager.cs" />
+    <Compile Include="Assets\Scripts\UI\BuildingActivate.cs" />
+    <Compile Include="Assets\Scripts\UI\GameLoaderScript.cs" />
+    <Compile Include="Assets\Scripts\UI\OptionMenuSliderScript.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

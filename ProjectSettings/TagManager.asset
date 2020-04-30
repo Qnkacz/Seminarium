@@ -12,6 +12,9 @@ TagManager:
   - crate
   - AOE
   - Storage
+  - truck
+  - selection
+  - obstacle
   layers:
   - Default
   - TransparentFX

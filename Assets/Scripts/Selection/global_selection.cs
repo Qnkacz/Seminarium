@@ -5,6 +5,7 @@ using UnityEngine;
 public class global_selection : MonoBehaviour
 {
     public bool toCut;
+    public bool toStorage;
     selected_dictionary selected_table;
     RaycastHit hit;
 
@@ -29,6 +30,7 @@ public class global_selection : MonoBehaviour
     void Start()
     {
         toCut = false;
+        toStorage = false;
         selected_table = GetComponent<selected_dictionary>();
         dragSelect = false;
     }
@@ -40,6 +42,7 @@ public class global_selection : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             p1 = Input.mousePosition;
+            
         }
 
         //2. while left mouse button held
@@ -57,6 +60,7 @@ public class global_selection : MonoBehaviour
             if(dragSelect==false)
             {
                 selected_table.deselectAll();
+                
             }
             if(dragSelect==true)
             {
@@ -82,7 +86,7 @@ public class global_selection : MonoBehaviour
                 selectionMesh = generateSelectionMesh(verts);
                
                 selectionBox = gameObject.AddComponent<MeshCollider>();
-                selectionBox.tag = "crate";
+                selectionBox.tag = "selection";
                 selectionBox.sharedMesh = selectionMesh;
                 selectionBox.convex = true;
                 selectionBox.isTrigger = true;
@@ -188,16 +192,28 @@ public class global_selection : MonoBehaviour
     {
         if(other.gameObject.name=="RayStop")
         {
-
+            
         }
         else
         {
-            selected_table.addSelected(other.gameObject);
+            
             if (toCut)
             {
                 if (other.gameObject.tag == "tree")
                 {
                     other.gameObject.GetComponent<Tree>().SetToCut();
+                }
+            }
+            if(toStorage)
+            {
+                
+                if(other.gameObject.tag=="tile")
+                {
+                    Soil s=other.gameObject.GetComponent<Soil>();
+                    if (s.child==null || s.asignedCrateBuilding!=null)
+                    {
+                        s.SpawnStorage();
+                    }
                 }
             }
         }
@@ -208,6 +224,10 @@ public class global_selection : MonoBehaviour
     public void SetTreesToCut()
     {
         toCut = true;
+    }
+    public void SetToStorage()
+    {
+        toStorage = true;
     }
 
 }

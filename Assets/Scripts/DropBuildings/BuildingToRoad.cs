@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class BuildingToRoad : MonoBehaviour
 {
-    public GameObject prevChild;
+    bool iseverythingallright = false;
+    Vector3 offset;
     public GameObject targetTile;
-    public GroundPlacementController GPC;
-    public Vector3 offset;
-    public bool isInair = true;
     public bool canFunction=false;
     public tileInfo tileInfo;
     public tileInfo[] adjtiles = new tileInfo[4];
@@ -17,61 +15,74 @@ public class BuildingToRoad : MonoBehaviour
     public GameObject exclamation;
     public GameObject childExclamation;
     public GameObject AOE;
+    [Header("Transport")]
+    public CrateBuilding crateBuilding;
+    public TruckManager TM;
+    public float DistanceToMain;
     private void OnTriggerEnter(Collider other)
     {
-        if (isInair)
+        if(other.gameObject.tag=="tile")
         {
-            if (other.gameObject.tag == "tree")
-            {
-
-                prevChild = other.gameObject;
-            }
-            else
-            {
-                prevChild = null;
-            }
-           
+            targetTile = other.gameObject;
         }
-        else
-        {
-
-        }
-
-
-
     }
     public void Snap()
     {
-        if (prevChild != null)
+        if (targetTile != null)
         {
-            tileInfo = prevChild.GetComponentInParent<tileInfo>();
-            targetTile = tileInfo.gameObject;
-            
-            offset = new Vector3(0, .02f, 0);
-            if (this.gameObject.tag == "MainBuilding")
+            Soil s = targetTile.GetComponent<Soil>();
+            tileInfo = targetTile.GetComponent<tileInfo>();
+            if(s.child==null || s.child.tag=="Storage" || s.child.tag=="tree") // sprawdzenie czy na kratce jest drzewo albo storage
             {
-                offset = new Vector3(0, .02f, .6f);
-            }
-            this.gameObject.transform.position = targetTile.transform.position + offset;
+                this.gameObject.transform.parent = targetTile.transform;
+                
+               
+                GetAdjTiles();
+                StartCoroutine(SeeifFunctional());
 
-            Destroy(prevChild);
-            prevChild = null;
-            isInair = false;
-            GetAdjTiles();
-            StartCoroutine(SeeifFunctional());
-            if (this.gameObject.tag=="crate")
+                if (this.gameObject.tag == "crate")
+                {
+
+                    if (Vector3.Distance(this.gameObject.transform.position, GlobalVariables.g.MainBuilding.transform.position) > DistanceToMain)
+                    {
+
+                        AOE.SetActive(true);
+                        AOE.layer = this.gameObject.layer;
+                        crateBuilding = AOE.GetComponent<CrateBuilding>();
+                        TM = this.gameObject.GetComponent<TruckManager>();
+                        TM.getCrateComponents(crateBuilding, this);
+                        iseverythingallright = true;
+                        GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Crate);
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
+                    
+                }
+                if (this.gameObject.tag == "MainBuilding")
+                {
+                    offset = new Vector3(0, .02f, .6f);
+                    GlobalVariables.g.MainBuilding = this.gameObject;
+                    BuildingActivate.BA.BuildingsButtons[1].interactable = false;
+                    SetDestination();
+                    iseverythingallright = true;
+                    GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Main);
+                }
+                this.gameObject.transform.position = targetTile.transform.position + offset;
+                if(iseverythingallright)
+                {
+                   if(s.child!=null) Destroy(s.child);
+                    s.child = this.gameObject;
+                }
+            }
+            else
             {
-                AOE.SetActive(true);
-                AOE.layer = this.gameObject.layer;
+                Destroy(this.gameObject);
             }
-            targetTile.GetComponent<Soil>().child = this.gameObject;
+           
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        
-
+        else Destroy(this.gameObject);
     }
     public IEnumerator SeeifFunctional()
     {
@@ -138,5 +149,15 @@ public class BuildingToRoad : MonoBehaviour
         }
         
     }
-    
+    public void SetDestination()
+    {
+        for (int i = 0; i < adjtiles.Length; i++)
+        {
+            if (adjtiles[i].GetComponent<tileInfo>().hasRoad == true)
+            {
+                GlobalVariables.g.Destination = adjtiles[i].GetComponent<Soil>().child.transform.position;
+                adjtiles[i].GetComponent<Soil>().child.GetComponent<RoadSnap>().DestinationRaod.SetActive(true);
+            }
+        }
+    }
 }

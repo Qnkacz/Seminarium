@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class BossScript : MonoBehaviour
 {
     public static BossScript BS;
+    public GlobalVariables GV;
+    public BuildingActivate BA;
     [Header("Variables")]
     public int lastMoney;
     public int currMoney;
@@ -20,6 +22,9 @@ public class BossScript : MonoBehaviour
     public Text SaplingText;
     public Text GrowRate;
     public Text WoodYield;
+    public Text BirchSaplings;
+    public Text OakSaplings;
+    public Text SpriceSaplings;
 
     [Header("ObjectReferencess")]
     public GameObject UI;
@@ -63,6 +68,10 @@ public class BossScript : MonoBehaviour
             SaplingText.text ="Saplings: "+ currSaplings.ToString();
             GrowRate.text ="Grow Rate: "+currGrowRT.ToString();
             WoodYield.text = "Wood: " + wood.ToString();
+            SpriceSaplings.text = "Spruce: " + GV.BirchSapling;
+            OakSaplings.text = "Oak: " + GV.OakSapling;
+            BirchSaplings.text = "Birch: " + GV.BirchSapling;
+            BA.button_ActivateSaplings();
             yield return new WaitForSecondsRealtime(refreshRate);
 
 

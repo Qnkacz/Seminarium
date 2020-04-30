@@ -10,7 +10,8 @@ TagManager:
   - MainBuilding
   - road
   - crate
-  - AreaOfEffect
+  - AOE
+  - Storage
   layers:
   - Default
   - TransparentFX

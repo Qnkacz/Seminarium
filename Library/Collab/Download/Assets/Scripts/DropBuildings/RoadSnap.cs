@@ -44,7 +44,7 @@ public class RoadSnap : MonoBehaviour
                 Destroy(prevChild);
                 prevChild = null;
                 isInair = false;
-                
+                targetTile.GetComponent<Soil>().child = this.gameObject;
             }
             else
             {

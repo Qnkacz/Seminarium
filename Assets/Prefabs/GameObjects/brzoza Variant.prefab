@@ -95,7 +95,6 @@ MonoBehaviour:
   setToCut: 0
   ableToCut: 0
   cutSignal: 0
-  LM: {fileID: 0}
   storage: {fileID: 5890954702675923809, guid: 230873d6c71400041b8da49dee7b5dd8, type: 3}
 --- !u!1001 &4301946686515271314
 PrefabInstance:
@@ -107,7 +106,7 @@ PrefabInstance:
     - target: {fileID: -7934688434227391694, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}
@@ -187,7 +186,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}
@@ -197,7 +196,7 @@ PrefabInstance:
     - target: {fileID: 76812854415609950, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2560721093471006956, guid: 8c9fabd0b17692942b93575b65950651,
         type: 3}

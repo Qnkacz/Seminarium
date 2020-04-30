@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,10 @@ public class BuildingToRoad : MonoBehaviour
     public bool canFunction=false;
     public tileInfo tileInfo;
     public tileInfo[] adjtiles = new tileInfo[4];
+    public tileInfo dummy;
     public GameObject exclamation;
     public GameObject childExclamation;
+    public GameObject AOE;
     private void OnTriggerEnter(Collider other)
     {
         if (isInair)
@@ -27,6 +30,7 @@ public class BuildingToRoad : MonoBehaviour
             {
                 prevChild = null;
             }
+           
         }
         else
         {
@@ -46,7 +50,7 @@ public class BuildingToRoad : MonoBehaviour
             offset = new Vector3(0, .02f, 0);
             if (this.gameObject.tag == "MainBuilding")
             {
-                offset = new Vector3(0, .02f, .3f);
+                offset = new Vector3(0, .02f, .6f);
             }
             this.gameObject.transform.position = targetTile.transform.position + offset;
 
@@ -54,10 +58,13 @@ public class BuildingToRoad : MonoBehaviour
             prevChild = null;
             isInair = false;
             GetAdjTiles();
-            if(this.gameObject.tag=="crate")
+            StartCoroutine(SeeifFunctional());
+            if (this.gameObject.tag=="crate")
             {
-                this.gameObject.GetComponent<SphereCollider>().enabled = true;
+                AOE.SetActive(true);
+                AOE.layer = this.gameObject.layer;
             }
+            targetTile.GetComponent<Soil>().child = this.gameObject;
         }
         else
         {
@@ -70,7 +77,7 @@ public class BuildingToRoad : MonoBehaviour
     {
         while(true)
         {
-            if (adjtiles[0].hasRoad == true || adjtiles[1].hasRoad == true || adjtiles[2].hasRoad == true || adjtiles[3].hasRoad == true)
+            if (adjtiles[0].hasRoad == true|| adjtiles[1].hasRoad == true || adjtiles[2].hasRoad == true || adjtiles[3].hasRoad == true)
             {
                 canFunction = true;
                 DisableExclamationmark();
@@ -101,14 +108,21 @@ public class BuildingToRoad : MonoBehaviour
         {
             adjtiles[3] = MapGenerator.mapGenerator.tilesArr[tileInfo.myArrayX, tileInfo.myArrayY - 1].GetComponent<tileInfo>();
         }
-        StartCoroutine(SeeifFunctional());
+        for (int i = 0; i < adjtiles.Length; i++)
+        {
+            if(adjtiles[i]==null)
+            {
+                adjtiles[i] = dummy;
+            }
+        }
+        
     }
 
     public void SpawnExplamationMark()
     {
         if(childExclamation==null)
         {
-            Instantiate(exclamation, this.transform);
+            childExclamation= Instantiate(exclamation, this.transform);
         }
         else
         {

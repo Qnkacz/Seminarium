@@ -11,7 +11,7 @@ public class MapGenerator : MonoBehaviour
     public Transform[,] tilesArr;
     public GameObject tile_botleft;
     public GameObject tile_toplight;
-
+    private ObstacleInfo ob;
     public Vector2 mapSize;
 
     List<Coord> allTileCoords;
@@ -19,7 +19,9 @@ public class MapGenerator : MonoBehaviour
     public UIManager uimanager;
 
     public int seed;
-    public int obstacleCount;
+    private int obstacleCount;
+    [Range(0.1f, .5f)] 
+    public float obstaclePercentage;
     private int treeCount;
     private void Start()
     {
@@ -32,6 +34,7 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
+        obstacleCount = Mathf.FloorToInt((mapSize.x * mapSize.y) * obstaclePercentage);
         treeCount = ((int)mapSize.x * (int)mapSize.y) - obstacleCount;
         allTileCoords = new List<Coord>();
         for (int x = 0; x < mapSize.x; x++)
@@ -72,12 +75,13 @@ public class MapGenerator : MonoBehaviour
         
         for (int i = 0; i < obstacleCount; i++)
         {
-
             Coord randomCoord = getRandCoord();
             Vector3 obstaclePos = CoordToPos(randomCoord.x, y: randomCoord.y);
-            Transform newObstacle = Instantiate(obstacleprefab, obstaclePos + Vector3.up * .3f, Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f))) as Transform;
-            newObstacle.GetComponent<ObstacleInfo>().setCoords((int)obstaclePos.x, (int)obstaclePos.z);
-            
+            Transform newObstacle = Instantiate(obstacleprefab, obstaclePos + Vector3.up * .3f, Quaternion.identity) as Transform;
+            ob = newObstacle.GetComponent<ObstacleInfo>();
+            ob.setCoords((int)obstaclePos.x, (int)obstaclePos.z);
+            ob.boulder.transform.rotation = Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f));
+
         }
 
         for (int i = 0; i < treeCount; i++)

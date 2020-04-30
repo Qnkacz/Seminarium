@@ -63,38 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BossScript.cs" />
-    <Compile Include="Assets\Scripts\DayNightCircle\DayCircle.cs" />
-    <Compile Include="Assets\Scripts\DayNightCircle\LightingManager.cs" />
-    <Compile Include="Assets\Scripts\DayNightCircle\LightingPreset.cs" />
-    <Compile Include="Assets\Scripts\DropBuildings\BuildingToRoad.cs" />
-    <Compile Include="Assets\Scripts\DropBuildings\CrateBuilding.cs" />
-    <Compile Include="Assets\Scripts\DropBuildings\GroundPlacementController.cs" />
-    <Compile Include="Assets\Scripts\DropBuildings\RoadSnap.cs" />
-    <Compile Include="Assets\Scripts\DropBuildings\StorageSnap.cs" />
-    <Compile Include="Assets\Scripts\GlobalVariables.cs" />
-    <Compile Include="Assets\Scripts\LocalNavMeshBuilder.cs" />
-    <Compile Include="Assets\Scripts\Map Generation\MapGenerator.cs" />
-    <Compile Include="Assets\Scripts\Map Generation\ObstacleInfo.cs" />
-    <Compile Include="Assets\Scripts\Map Generation\tileInfo.cs" />
-    <Compile Include="Assets\Scripts\Map Generation\Utility.cs" />
-    <Compile Include="Assets\Scripts\NavMeshLink.cs" />
-    <Compile Include="Assets\Scripts\NavMeshModifier.cs" />
-    <Compile Include="Assets\Scripts\NavMeshModifierVolume.cs" />
-    <Compile Include="Assets\Scripts\NavMeshSourceTag.cs" />
-    <Compile Include="Assets\Scripts\NavMeshSurface.cs" />
-    <Compile Include="Assets\Scripts\Selection\global_selection.cs" />
-    <Compile Include="Assets\Scripts\Selection\selected_dictionary.cs" />
-    <Compile Include="Assets\Scripts\Selection\selection_component.cs" />
-    <Compile Include="Assets\Scripts\Selection\Utils.cs" />
-    <Compile Include="Assets\Scripts\Soil.cs" />
-    <Compile Include="Assets\Scripts\Tree.cs" />
-    <Compile Include="Assets\Scripts\treeCutManager.cs" />
-    <Compile Include="Assets\Scripts\UI\BuildingActivate.cs" />
-    <Compile Include="Assets\Scripts\UI\GameLoaderScript.cs" />
-    <Compile Include="Assets\Scripts\UI\OptionMenuSliderScript.cs" />
-    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <None Include="Assets\Scripts\NavMeshComponents.asmdef" />
+    <Compile Include="Assets\Scripts\NavMesh\LocalNavMeshBuilder.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMeshLink.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMeshModifier.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMeshSourceTag.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMeshSurface.cs" />
+    <None Include="Assets\Scripts\NavMesh\NavMeshComponents.asmdef" />
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Pan Janusz Tracz/Seminarium/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>

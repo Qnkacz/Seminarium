@@ -36,6 +36,9 @@ public class UIManager : MonoBehaviour
     public bool isSaplingsMenuVisible;
     public GameObject saplingsMenu;
     public bool isWoodsMenuVisible;
+    public Button Birch;
+    public Button Oak;
+    public Button Spruce;
 
     [Header("movement")]
     //one step right is from -46 to -39 so +7
@@ -235,7 +238,10 @@ public class UIManager : MonoBehaviour
     {
         globalSelection.SetTreesToCut();
     }
-
+    public void SetToStorage()
+    {
+        globalSelection.SetToStorage();
+    }
 
 
 }

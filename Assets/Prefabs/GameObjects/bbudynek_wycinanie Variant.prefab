@@ -11,7 +11,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.24733, y: 4.9368563, z: 7.414658}
+  m_Size: {x: 0.1, y: 7.87, z: 0.1}
   m_Center: {x: 1.0298885, y: 1.2237711, z: -0.9211482}
 --- !u!114 &-5664584781240245755
 MonoBehaviour:
@@ -25,11 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f886ebe41f53ff3429fda97303e89800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prevChild: {fileID: 0}
   targetTile: {fileID: 0}
-  GPC: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
-  isInair: 1
   canFunction: 0
   tileInfo: {fileID: 0}
   adjtiles:
@@ -42,6 +38,27 @@ MonoBehaviour:
     type: 3}
   childExclamation: {fileID: 0}
   AOE: {fileID: 6311488755379286864}
+  crateBuilding: {fileID: 0}
+  TM: {fileID: 0}
+  DistanceToMain: 0
+--- !u!114 &1673460523057235162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123042916425867897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f81e8765a3b89439749880e90aff96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisBtr: {fileID: 0}
+  thisCB: {fileID: 0}
+  StartLocation: {x: 0, y: 0, z: 0}
+  truck: {fileID: 5772837499811980162, guid: 64bbed9f8f0ffa942bb3ea3c871430f3, type: 3}
+  spawnedtrucks: []
+  t: {fileID: 0}
 --- !u!1 &6311488755379286864
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +72,7 @@ GameObject:
   - component: {fileID: 4201019145009417415}
   - component: {fileID: 1080540743921745597}
   - component: {fileID: 4871182016734922482}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: AOE
   m_Icon: {fileID: 0}
@@ -148,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TreesInarea: []
+  tilesInArea: []
   WoodStored: 0
   baseWoodStorage: 4000
   ExtendedStorage: 0
@@ -254,7 +272,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8e4023bc61bc00843bb96accb715b63a,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 8e4023bc61bc00843bb96accb715b63a,
         type: 3}

@@ -35,7 +35,11 @@ public class GlobalVariables : MonoBehaviour
     public int BirchSapling;
     public int SpruceSapling;
     public int OakSapling;
-
+    [Header("transport")]
+    public GameObject MainBuilding;
+    public Vector3 Destination;
+    public int WoodValue;
+    public int roadCount;
     private 
     void Start()
     {
@@ -51,6 +55,7 @@ public class GlobalVariables : MonoBehaviour
             StartGrowRate = (int)growRateSlider.value;
         }
         BirchSapling = SpruceSapling = OakSapling = 0;
+        roadCount = 0;
     }
     public void ChangeMoney()
     {

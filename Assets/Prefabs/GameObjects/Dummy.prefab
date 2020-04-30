@@ -140,7 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27f89771ecac64409422224f9f52a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storage: {fileID: 0}
   currSoilGrade: 0
   minSoilgrade: 0
   maxSoilGrade: 4
-  child: {fileID: 0}
+  child: {fileID: 3364326506615683417, guid: 7fbbd4da073883641995887b99a37eee, type: 3}
+  asignedCrateBuilding: {fileID: 0}

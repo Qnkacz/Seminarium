@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrateBuilding : MonoBehaviour
 {
     public List<GameObject> TreesInarea=new List<GameObject>();
+    public List<GameObject> tilesInArea = new List<GameObject>();
     public int WoodStored;
     public int baseWoodStorage = 4000;
     public int ExtendedStorage;
@@ -19,6 +20,10 @@ public class CrateBuilding : MonoBehaviour
                 other.gameObject.GetComponent<Tree>().asignedCrateBuilding = this;
                 TreesInarea.Add(other.gameObject);
             }
+            if(other.gameObject.tag=="tile")
+            {
+                other.gameObject.GetComponent<Soil>().asignedCrateBuilding = this;
+             }
     }
     private void Start()
     {
@@ -43,5 +48,9 @@ public class CrateBuilding : MonoBehaviour
             WoodOverflow -= 100;
             if (WoodOverflow < 0) WoodOverflow = 0;
         }
+    }
+    public int GetWoodStored()
+    {
+        return WoodStored;
     }
 }

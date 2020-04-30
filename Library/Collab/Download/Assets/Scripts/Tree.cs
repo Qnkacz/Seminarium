@@ -32,11 +32,11 @@ public class Tree : MonoBehaviour
     public float woodYield;
     public float RefreshTime=100f;
     public bool setToCut;
-    public bool ableToCut; //TODO
+    public bool ableToCut; 
 
     [Header("Tree cut")]
     public bool cutSignal;
-    public LightingManager LM;
+    public GameObject storage;
     void Start()
     {
         cutSignal = true;
@@ -51,7 +51,7 @@ public class Tree : MonoBehaviour
     }
     private void Update()
     {
-        if(ableToCut&&setToCut&&cutSignal)
+        if(ableToCut&&setToCut&&cutSignal&& currTreeState!=TreeStates.young)
         {
             cutSignal = false;
             treeCutManager.TDM.treeQueue.Enqueue(this.gameObject);
@@ -142,7 +142,6 @@ public class Tree : MonoBehaviour
             
             yield return new WaitForSeconds(time);
             currAge += time;
-            //Debug.Log("Kappa po: " + time);
         }
     }
     public void SetToCut()
@@ -177,7 +176,33 @@ public class Tree : MonoBehaviour
     public void addResources()
     {
         asignedCrateBuilding.WoodStored +=(int) woodYield;
+        asignedCrateBuilding.TreesInarea.Remove(this.gameObject);
+        Instantiate(storage, this.gameObject.transform.position, Quaternion.identity);
+        asignedCrateBuilding.Storage_add();
+        asignedCrateBuilding.StartCoroutine(asignedCrateBuilding.overflowWoodDestroy());
+        switch(treename)
+        {
+            case treeClass.brzoza:
+                GlobalVariables.g.BirchSapling+=2;
+                break;
+            case treeClass.dab:
+                GlobalVariables.g.OakSapling += 2;
+                break;
+            case treeClass.iglak:
+                GlobalVariables.g.SpruceSapling += 2;
+                break;
+        }
     }
-    
-
+    public void releaseSoil()
+    {
+        soil.child = null;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="tile")
+        {
+            soil = other.gameObject.GetComponent<Soil>();
+        }
+    }
+   
 }

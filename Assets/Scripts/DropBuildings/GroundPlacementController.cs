@@ -26,7 +26,40 @@ public class GroundPlacementController : MonoBehaviour
             MoveCurrObjectToMouse();
             ReleaseIfClicked();
         }
+        else
+        {
+            Click();
+        }
     }
+
+    public void Click()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                if (hit.transform.gameObject.tag == "tile")
+                {
+                    Soil s = hit.transform.gameObject.GetComponent<Soil>();
+                    if(s.child!=null)
+                    {
+                        if(s.child.tag=="crate")
+                        {
+                            if (s.child.GetComponent<BuildingToRoad>().canFunction) s.child.GetComponent<TruckManager>().sendTruck();
+                        }
+                        if(s.child.tag=="obstacle")
+                        {
+                            s.child.GetComponent<ObstacleInfo>().AwakeCanvas();
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+
     public void ReleaseIfClicked()
     {
         if(Input.GetMouseButtonDown(0))
@@ -47,6 +80,10 @@ public class GroundPlacementController : MonoBehaviour
             {
                 currPlacableObject.GetComponentInChildren<StorageSnap>().Snap();
             }
+            if(currPlacableObject.GetComponentInChildren<SaplingSnap>() != null)
+            {
+                currPlacableObject.GetComponentInChildren<SaplingSnap>().Snap();
+            }
             currPlacableObject = null;
             
         }
@@ -64,8 +101,22 @@ public class GroundPlacementController : MonoBehaviour
                 currPlacableObject.transform.position = hitInfo.point;
                 
             }
-            
-            
+            if(currPlacableObject==null)
+            {
+                Debug.Log("currplacable is null");
+                    if (hitInfo.transform.gameObject.tag == "tile")
+                    {
+                    Debug.Log("hit a tile");
+                        Soil s = hitInfo.transform.gameObject.GetComponent<Soil>();
+                        if (s.child.tag == "crate")
+                        {
+
+                            s.child.GetComponent<TruckManager>().sendTruck();
+
+                        }
+                    }
+                
+            }
         }
     }
 

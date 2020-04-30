@@ -110,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.991, y: 0.99, z: 0.06}
+  m_Size: {x: 1, y: 1, z: 0.06}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2888448697896077001
 Rigidbody:
@@ -140,7 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27f89771ecac64409422224f9f52a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storage: {fileID: 5890954702675923809, guid: 230873d6c71400041b8da49dee7b5dd8, type: 3}
   currSoilGrade: 0
   minSoilgrade: 0
   maxSoilGrade: 4
   child: {fileID: 0}
+  asignedCrateBuilding: {fileID: 0}

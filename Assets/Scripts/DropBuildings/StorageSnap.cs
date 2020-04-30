@@ -23,6 +23,8 @@ public class StorageSnap : MonoBehaviour
     {
         if (targettile_soil!=null) this.gameObject.transform.parent.transform.position = targetTile.transform.position;
         else Destroy(this.gameObject.transform.parent.gameObject);
+
+        GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Storage);
     }
    
 }
