@@ -190,13 +190,7 @@ public class global_selection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name=="RayStop")
-        {
-            
-        }
-        else
-        {
-            
+        
             if (toCut)
             {
                 if (other.gameObject.tag == "tree")
@@ -216,10 +210,6 @@ public class global_selection : MonoBehaviour
                     }
                 }
             }
-        }
-       
-       
-        
     }
     public void SetTreesToCut()
     {

@@ -140,9 +140,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27f89771ecac64409422224f9f52a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 4d820c0ffd0278c4f825bb4de963848d, type: 2}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.6252458, g: 0.9611703, b: 0.47875077, a: 1}
+    key1: {r: 0.9622642, g: 0.95711625, b: 0.38581347, a: 1}
+    key2: {r: 0.9622642, g: 0.95711625, b: 0.38581347, a: 0}
+    key3: {r: 0.9622642, g: 0.95711625, b: 0.38581347, a: 0}
+    key4: {r: 0.9622642, g: 0.95711625, b: 0.38581347, a: 0}
+    key5: {r: 0.9622642, g: 0.95711625, b: 0.38581347, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   storage: {fileID: 5890954702675923809, guid: 230873d6c71400041b8da49dee7b5dd8, type: 3}
   currSoilGrade: 0
   minSoilgrade: 0
   maxSoilGrade: 4
   child: {fileID: 0}
   asignedCrateBuilding: {fileID: 0}
+  DistanceToBestFert: 0
+  distancenormalized: 0

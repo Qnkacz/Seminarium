@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Selection\selected_dictionary.cs" />
     <Compile Include="Assets\Scripts\Selection\selection_component.cs" />
     <Compile Include="Assets\Scripts\Selection\Utils.cs" />
+    <Compile Include="Assets\Scripts\Tree\Fertilizer.cs" />
     <Compile Include="Assets\Scripts\Tree\Soil.cs" />
     <Compile Include="Assets\Scripts\Tree\Tree.cs" />
     <Compile Include="Assets\Scripts\Tree\treeCutManager.cs" />

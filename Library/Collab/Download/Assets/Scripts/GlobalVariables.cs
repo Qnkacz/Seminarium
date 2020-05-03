@@ -31,6 +31,17 @@ public class GlobalVariables : MonoBehaviour
     public Slider growRateSlider;
     [Header("navigation")]
     public NavMeshSurface surface;
+    [Header("Saplings")]
+    public int BirchSapling;
+    public int SpruceSapling;
+    public int OakSapling;
+    [Header("transport")]
+    public GameObject MainBuilding;
+    public Vector3 Destination;
+    public int WoodValue;
+    public int roadCount;
+
+    public int FertilizerCount { get; internal set; }
 
     private 
     void Start()
@@ -38,7 +49,8 @@ public class GlobalVariables : MonoBehaviour
         g = this;
         if (moneySlider==null || SaplingSlider==null ||growRateSlider==null)
         {
-
+            currMoney = startMoneyAmount;
+            BossScript.BS.ChangeGoldOnScreen(true);
         }
         else
         {
@@ -46,6 +58,8 @@ public class GlobalVariables : MonoBehaviour
             StarSaplingAmount = (int)SaplingSlider.value;
             StartGrowRate = (int)growRateSlider.value;
         }
+        BirchSapling = SpruceSapling = OakSapling = 0;
+        roadCount = 0;
     }
     public void ChangeMoney()
     {

@@ -101,7 +101,7 @@ public class RoadSnap : MonoBehaviour
                 {
                     adjtiles[i] = dummy;
                 }
-                if(adjtiles[i].child.tag=="road")
+                if(adjtiles[i].child.tag=="road" || adjtiles[i].child.tag=="tree")
                 {
                     canbuild = true;
                 }

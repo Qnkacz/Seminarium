@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CrateBuilding : MonoBehaviour
 {
+    private SphereCollider thisCollider;
     public List<GameObject> TreesInarea=new List<GameObject>();
     public List<GameObject> tilesInArea = new List<GameObject>();
     public int WoodStored;
@@ -16,9 +17,13 @@ public class CrateBuilding : MonoBehaviour
     {
             if (other.gameObject.tag == "tree")
             {
+                if(!TreesInarea.Contains(other.gameObject))
+                {
                 other.gameObject.GetComponent<Tree>().SetAbleToCut();
                 other.gameObject.GetComponent<Tree>().asignedCrateBuilding = this;
                 TreesInarea.Add(other.gameObject);
+                }
+                
             }
             if(other.gameObject.tag=="tile")
             {
@@ -27,8 +32,10 @@ public class CrateBuilding : MonoBehaviour
     }
     private void Start()
     {
+        thisCollider = this.gameObject.GetComponent<SphereCollider>();
         ExtendedStorage = baseWoodStorage;
         StorageBuildingsCount = 0;
+        StartCoroutine(SwitchCollider());
     }
     public void Storage_add()
     {
@@ -52,5 +59,21 @@ public class CrateBuilding : MonoBehaviour
     public int GetWoodStored()
     {
         return WoodStored;
+    }
+    IEnumerator SwitchCollider()
+    {
+        while(true)
+        {
+            if (thisCollider.enabled == true)
+            {
+                thisCollider.enabled = false;
+                yield return new WaitForSecondsRealtime(5f);
+            }
+            else
+            {
+                thisCollider.enabled = true;
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }

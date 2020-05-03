@@ -18,8 +18,6 @@ public class GameLoaderScript : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             Debug.Log("money: "+GlobalVariables.startMoneyAmount);
-            Debug.Log("saplings: "+GlobalVariables.StarSaplingAmount);
-            Debug.Log("GR: " + GlobalVariables.StartGrowRate);
         }
     }
    

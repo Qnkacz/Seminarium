@@ -7,18 +7,16 @@ using UnityEngine.AI;
 public class GlobalVariables : MonoBehaviour
 {
     public static GlobalVariables g;
-    [SerializeField]
+    [Header("Things from stettings")]
     public static int startMoneyAmount;
-    public static int StarSaplingAmount;
-    public static int StartGrowRate;
+    public static int Start_FertCount;
+    public static int Start_mapSize;
+    public static int Start_mapSeed;
     [Header("UIVariables")]
-    public int lastMoney;
     public int currMoney;
-    public int lastSaplings;
-    public int currSaplings;
-    public int lastGrowRt;
-    public int currGrowRT;
-    public int GUIRefreshRate;
+    public int curr_fertCount;
+    public int curr_mapsize;
+    public int curr_mapseed;
 
     [Header("Time Variables")]
     public int currDay;
@@ -27,8 +25,9 @@ public class GlobalVariables : MonoBehaviour
 
     [Header("OptionsSliders")]
     public Slider moneySlider;
-    public Slider SaplingSlider;
-    public Slider growRateSlider;
+    public Slider Fertilize;
+    public Slider MapSize;
+    public Slider mapSeed;
     [Header("navigation")]
     public NavMeshSurface surface;
     [Header("Saplings")]
@@ -40,19 +39,26 @@ public class GlobalVariables : MonoBehaviour
     public Vector3 Destination;
     public int WoodValue;
     public int roadCount;
+    public int FertilizerCount { get; internal set; }
+
     private 
     void Start()
     {
         g = this;
-        if (moneySlider==null || SaplingSlider==null ||growRateSlider==null)
+        if (moneySlider==null || Fertilize == null || MapSize == null)
         {
-
+            currMoney = startMoneyAmount;
+            curr_mapseed = Start_mapSeed;
+            curr_fertCount = Start_FertCount;
+            curr_mapsize = Start_mapSize;
+            BossScript.BS.ChangeGoldOnScreen(true);
         }
         else
         {
             startMoneyAmount = (int)moneySlider.value;
-            StarSaplingAmount = (int)SaplingSlider.value;
-            StartGrowRate = (int)growRateSlider.value;
+            Start_FertCount = (int)Fertilize.value;
+            Start_mapSize = (int)MapSize.value;
+            Start_mapSeed = (int)mapSeed.value;
         }
         BirchSapling = SpruceSapling = OakSapling = 0;
         roadCount = 0;
@@ -61,14 +67,16 @@ public class GlobalVariables : MonoBehaviour
     {
         startMoneyAmount = (int)moneySlider.value;
     }
-    public void ChangeSaplings()
+    public void ChangeVertilize()
     {
-        StarSaplingAmount = (int)SaplingSlider.value;
+        Start_FertCount = (int)Fertilize.value;
     }
-    public void ChangeGrowRate()
+    public void ChangeMapSize()
     {
-        StartGrowRate = (int)growRateSlider.value;
+        Start_mapSize = (int)MapSize.value;
     }
-
-
+    public void ChangeSeed()
+    {
+        Start_mapSeed = (int)mapSeed.value;
+    }
 }

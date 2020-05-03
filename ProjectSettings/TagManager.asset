@@ -15,6 +15,7 @@ TagManager:
   - truck
   - selection
   - obstacle
+  - fertilizer
   layers:
   - Default
   - TransparentFX

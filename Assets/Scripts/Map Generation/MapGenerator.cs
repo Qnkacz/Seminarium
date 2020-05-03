@@ -11,6 +11,7 @@ public class MapGenerator : MonoBehaviour
     public Transform[,] tilesArr;
     public GameObject tile_botleft;
     public GameObject tile_toplight;
+    public float diagonal;
     private ObstacleInfo ob;
     public Vector2 mapSize;
 
@@ -26,10 +27,12 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
         mapGenerator = this;
+        SetMapSize();
         tilesArr = new Transform[(int)mapSize.x,(int) mapSize.y];
         GenerateMap();
         tile_botleft = tilesArr[0, 0].gameObject;
         tile_toplight = tilesArr[tilesArr.GetLength(0)-1,tilesArr.GetLength(1)-1].gameObject;
+        diagonal = Vector3.Distance(tile_botleft.transform.position, tile_toplight.transform.position);
     }
 
     public void GenerateMap()
@@ -56,8 +59,15 @@ public class MapGenerator : MonoBehaviour
         Transform mapHolder = new GameObject(holderName).transform;
         mapHolder.parent = this.transform;
 
+        
+        for (int i = 0; i < GlobalVariables.Start_FertCount; i++)
+        {
+            Debug.Log(GlobalVariables.Start_FertCount);
+            Debug.Log(GlobalVariables.g.curr_fertCount);
+            GenerateFertilizers();
+        }
         /// adding the tiles
-        for(int x=0; x<mapSize.x;x++)
+        for (int x=0; x<mapSize.x;x++)
         {
             for (int y = 0; y < mapSize.y; y++)
             {
@@ -70,9 +80,9 @@ public class MapGenerator : MonoBehaviour
                 newTile.GetComponent<tileInfo>().MyPlaceInArray(x, y);
             }
         }
+       
 
 
-        
         for (int i = 0; i < obstacleCount; i++)
         {
             Coord randomCoord = getRandCoord();
@@ -114,5 +124,37 @@ public class MapGenerator : MonoBehaviour
 
         public int getX() { return this.x; }
         public int gety() { return this.y; }
+    }
+    public void GenerateFertilizers()
+    {
+        GameObject SoilGrader = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        SoilGrader.tag = "fertilizer";
+        SoilGrader.transform.position = CoordToPos(Mathf.FloorToInt(Random.Range(0, mapSize.x)), Mathf.FloorToInt(Random.Range(0, mapSize.y)));
+        SphereCollider collider = SoilGrader.AddComponent<SphereCollider>();
+        collider.enabled = true;
+        collider.radius = 280;
+        Fertilizer fert = SoilGrader.AddComponent<Fertilizer>();
+        Destroy(SoilGrader);
+    }
+    public void SetMapSize()
+    {
+        switch(GlobalVariables.g.curr_mapsize)
+        {
+            case 1:
+                mapSize.x = mapSize.y = 25;
+                break;
+            case 2:
+                mapSize.x = mapSize.y = 50;
+                break;
+            case 3:
+                mapSize.x = mapSize.y = 75;
+                break;
+            case 4:
+                mapSize.x = mapSize.y = 100;
+                break;
+            default:
+                mapSize.x = mapSize.y = 100;
+                break;
+        }
     }
 }

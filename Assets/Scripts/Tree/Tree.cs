@@ -32,7 +32,7 @@ public class Tree : MonoBehaviour
     public float woodYield;
     public float RefreshTime=100f;
     public bool setToCut;
-    public bool ableToCut; 
+    public bool ableToCut;
 
     [Header("Tree cut")]
     public bool cutSignal;
@@ -46,7 +46,6 @@ public class Tree : MonoBehaviour
         SetStartingStage();
         SetWoodYield();
         StartCoroutine(TreeGrowthTick(RefreshTime));
-        
     }
     private void Update()
     {
@@ -140,7 +139,7 @@ public class Tree : MonoBehaviour
         {
             
             yield return new WaitForSeconds(time);
-            currAge += time;
+            currAge += time + soil.currSoilGrade*.25f;
         }
     }
     public void SetToCut()
@@ -201,7 +200,7 @@ public class Tree : MonoBehaviour
     {
         if(other.gameObject.tag=="tile")
         {
-            soil = other.gameObject.GetComponent<Soil>();
+            if (soil == null) soil = other.gameObject.GetComponent<Soil>();
         }
     }
    

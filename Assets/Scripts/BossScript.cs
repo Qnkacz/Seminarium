@@ -33,6 +33,7 @@ public class BossScript : MonoBehaviour
         BS = this;
         UIManager = UI.GetComponent<UIManager>();
         GoldText.text ="Gold: "+ GV.currMoney.ToString();
+        ChangeWood();
     }
     public void ChangeGoldOnScreen(bool ifadded)
     {
