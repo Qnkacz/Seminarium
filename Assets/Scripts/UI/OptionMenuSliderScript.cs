@@ -20,6 +20,12 @@ public class OptionMenuSliderScript : MonoBehaviour
     {
         
         amountText.text = slider.value.ToString();
+        if(this.gameObject.name== "BoulderCount")
+        {
+            if (slider.value < .22f) amountText.text = "easy";
+            else if (slider.value < .4f) amountText.text = "medium";
+            else amountText.text = "hard";
+        }
     }
     public void GradientColorChange()
     {

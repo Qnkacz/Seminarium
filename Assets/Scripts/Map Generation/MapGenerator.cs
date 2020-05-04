@@ -26,9 +26,11 @@ public class MapGenerator : MonoBehaviour
     private int treeCount;
     private void Start()
     {
+        seed = GlobalVariables.Start_mapSeed;
         mapGenerator = this;
         SetMapSize();
         tilesArr = new Transform[(int)mapSize.x,(int) mapSize.y];
+        obstaclePercentage = GlobalVariables.start_boulderCount;
         GenerateMap();
         tile_botleft = tilesArr[0, 0].gameObject;
         tile_toplight = tilesArr[tilesArr.GetLength(0)-1,tilesArr.GetLength(1)-1].gameObject;
@@ -62,8 +64,6 @@ public class MapGenerator : MonoBehaviour
         
         for (int i = 0; i < GlobalVariables.Start_FertCount; i++)
         {
-            Debug.Log(GlobalVariables.Start_FertCount);
-            Debug.Log(GlobalVariables.g.curr_fertCount);
             GenerateFertilizers();
         }
         /// adding the tiles
@@ -138,7 +138,7 @@ public class MapGenerator : MonoBehaviour
     }
     public void SetMapSize()
     {
-        switch(GlobalVariables.g.curr_mapsize)
+        switch (GlobalVariables.Start_mapSize)
         {
             case 1:
                 mapSize.x = mapSize.y = 25;

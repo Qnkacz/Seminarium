@@ -12,6 +12,7 @@ public class GlobalVariables : MonoBehaviour
     public static int Start_FertCount;
     public static int Start_mapSize;
     public static int Start_mapSeed;
+    public static float start_boulderCount;
     [Header("UIVariables")]
     public int currMoney;
     public int curr_fertCount;
@@ -28,6 +29,7 @@ public class GlobalVariables : MonoBehaviour
     public Slider Fertilize;
     public Slider MapSize;
     public Slider mapSeed;
+    public Slider obstacles;
     [Header("navigation")]
     public NavMeshSurface surface;
     [Header("Saplings")]
@@ -78,5 +80,9 @@ public class GlobalVariables : MonoBehaviour
     public void ChangeSeed()
     {
         Start_mapSeed = (int)mapSeed.value;
+    }
+    public void ChangeObstacles()
+    {
+        start_boulderCount =obstacles.value;
     }
 }

@@ -59,6 +59,7 @@ public class UIManager : MonoBehaviour
     {
 
         Invoke("StartUp", .02f);
+        
     }
     private void Update()
     {
@@ -76,6 +77,7 @@ public class UIManager : MonoBehaviour
         cameraBoundaries[1] = MapGenerator.mapGenerator.tile_toplight.transform.position.x - 4.5f;
         cameraBoundaries[2] = MapGenerator.mapGenerator.tile_botleft.transform.position.z - 4.5f; //done
         cameraBoundaries[3] = MapGenerator.mapGenerator.tile_toplight.transform.position.z - 4.5f;//140f;
+        MainCamera.transform.position = new Vector3(cameraBoundaries[0], MainCamera.transform.position.y, cameraBoundaries[2]);
         isMovementActive = true;
         speedText.text = " Camera Speed       " + speedSlider.value.ToString("f2");
     }

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1230,10 +1230,11 @@ MonoBehaviour:
   - {fileID: 9222885340495536793, guid: f2edf66811334274ebef0b105af500e0, type: 3}
   tile_botleft: {fileID: 0}
   tile_toplight: {fileID: 0}
+  diagonal: 0
   mapSize: {x: 100, y: 100}
   uimanager: {fileID: 1317242358}
   seed: 26
-  obstaclePercentage: 0.223
+  obstaclePercentage: 0.178
 --- !u!4 &1562359361
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,19 +1279,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff3b6e869e891346b3be9ae37dcaa19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastMoney: 0
   currMoney: 0
-  lastSaplings: 0
-  currSaplings: 0
-  lastGrowRt: 0
-  currGrowRT: 0
-  GUIRefreshRate: 0
+  curr_fertCount: 0
+  curr_mapsize: 0
+  curr_mapseed: 0
   currDay: 0
   currMonth: 0
   currYear: 0
   moneySlider: {fileID: 0}
-  SaplingSlider: {fileID: 0}
-  growRateSlider: {fileID: 0}
+  Fertilize: {fileID: 0}
+  MapSize: {fileID: 0}
+  mapSeed: {fileID: 0}
   surface: {fileID: 1685069635}
   BirchSapling: 0
   SpruceSapling: 0
@@ -1794,6 +1793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392181642176929117, guid: 9db56d0e4c2f3ba408abc69ab830a407,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2495221673797525496, guid: 9db56d0e4c2f3ba408abc69ab830a407,
         type: 3}
