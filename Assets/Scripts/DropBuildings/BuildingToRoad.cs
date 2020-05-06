@@ -26,26 +26,22 @@ public class BuildingToRoad : MonoBehaviour
             targetTile = other.gameObject;
         }
     }
-    public void Snap()
+    private void Start()
     {
-        if (targetTile != null)
-        {
+            targetTile = this.gameObject.transform.parent.gameObject;
             Soil s = targetTile.GetComponent<Soil>();
             tileInfo = targetTile.GetComponent<tileInfo>();
-            if(s.child==null || s.child.tag=="Storage" || s.child.tag=="tree") // sprawdzenie czy na kratce jest drzewo albo storage
+            if (s.child == null || s.child.tag == "Storage" || s.child.tag == "tree")
             {
-                this.gameObject.transform.parent = targetTile.transform;
-                
-               
+            Destroy(s.child);
+            s.child = this.gameObject;
                 GetAdjTiles();
-                StartCoroutine(SeeifFunctional());
-
-                if (this.gameObject.tag == "crate")
+            if(!canFunction) InvokeRepeating("SeeifFunctional", .1f, 3f);
+            if (this.gameObject.tag == "crate")
                 {
-
                     if (Vector3.Distance(this.gameObject.transform.position, GlobalVariables.g.MainBuilding.transform.position) > DistanceToMain)
                     {
-
+                    this.gameObject.GetComponentInChildren<CrateBuilding>().gameObject.SetActive(true);
                         AOE.SetActive(true);
                         AOE.layer = this.gameObject.layer;
                         crateBuilding = AOE.GetComponent<CrateBuilding>();
@@ -54,11 +50,7 @@ public class BuildingToRoad : MonoBehaviour
                         iseverythingallright = true;
                         GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Crate);
                     }
-                    else
-                    {
-                        Destroy(this.gameObject);
-                    }
-                    
+
                 }
                 if (this.gameObject.tag == "MainBuilding")
                 {
@@ -66,40 +58,25 @@ public class BuildingToRoad : MonoBehaviour
                     GlobalVariables.g.MainBuilding = this.gameObject;
                     BuildingActivate.BA.BuildingsButtons[1].interactable = false;
                     SetDestination();
-                    iseverythingallright = true;
                     GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Main);
                 }
-                this.gameObject.transform.position = targetTile.transform.position + offset;
-                if(iseverythingallright)
-                {
-                   if(s.child!=null) Destroy(s.child);
-                    s.child = this.gameObject;
-                }
             }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-           
-        }
-        else Destroy(this.gameObject);
     }
-    public IEnumerator SeeifFunctional()
+    public void SeeifFunctional()
     {
-        while(true)
-        {
             if (adjtiles[0].hasRoad == true|| adjtiles[1].hasRoad == true || adjtiles[2].hasRoad == true || adjtiles[3].hasRoad == true)
             {
                 canFunction = true;
-                DisableExclamationmark();
+                //Debug.Log("no i chuj jest");
             }
-           if(!canFunction)
-           {
-                SpawnExplamationMark();
-           }
-            
-            yield return new WaitForSecondsRealtime(1f);
-        }
+
+            else
+            {
+            //Debug.Log("no chuj nie ma");
+            canFunction = false;
+            }
+        ShowExclamation(canFunction);
+        
     }
     public void GetAdjTiles()
     {
@@ -126,28 +103,15 @@ public class BuildingToRoad : MonoBehaviour
                 adjtiles[i] = dummy;
             }
         }
-        
+        foreach (var item in adjtiles)
+        {
+            //Debug.Log(item.transform.gameObject.name);
+        }
     }
 
-    public void SpawnExplamationMark()
+    public void ShowExclamation(bool b)
     {
-        if(childExclamation==null)
-        {
-            childExclamation= Instantiate(exclamation, this.transform);
-        }
-        else
-        {
-            childExclamation.SetActive(true);
-        }
-
-    }
-    public void DisableExclamationmark()
-    {
-        if(childExclamation!=null)
-        {
-            childExclamation.SetActive(false);
-        }
-        
+            exclamation.SetActive(!b);
     }
     public void SetDestination()
     {

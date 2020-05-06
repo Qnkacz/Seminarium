@@ -9,6 +9,7 @@ public class MapGenerator : MonoBehaviour
     public Transform obstacleprefab;
     public Transform[] trees;
     public Transform[,] tilesArr;
+    public List<Tree> treeArr = new List<Tree>();
     public GameObject tile_botleft;
     public GameObject tile_toplight;
     public float diagonal;
@@ -35,6 +36,7 @@ public class MapGenerator : MonoBehaviour
         tile_botleft = tilesArr[0, 0].gameObject;
         tile_toplight = tilesArr[tilesArr.GetLength(0)-1,tilesArr.GetLength(1)-1].gameObject;
         diagonal = Vector3.Distance(tile_botleft.transform.position, tile_toplight.transform.position);
+        StartCoroutine(growtrees(256));
     }
 
     public void GenerateMap()
@@ -99,6 +101,7 @@ public class MapGenerator : MonoBehaviour
             Coord randomCoord = getRandCoord();
             Vector3 obstaclePos = CoordToPos(randomCoord.x, y: randomCoord.y);
             Transform tree = Instantiate(trees[Random.Range(0,trees.Length)], obstaclePos, Quaternion.identity) as Transform;
+            treeArr.Add(tree.GetComponent<Tree>());
         }
     }
 
@@ -155,6 +158,17 @@ public class MapGenerator : MonoBehaviour
             default:
                 mapSize.x = mapSize.y = 100;
                 break;
+        }
+    }
+    IEnumerator growtrees(float time)
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(time);
+            foreach (var item in treeArr)
+            {
+                item.currAge += time;
+            }
         }
     }
 }

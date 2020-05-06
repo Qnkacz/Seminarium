@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager uim;
     public global_selection globalSelection;
     public BossScript BossScript;
     [Header("MainCamera")]
@@ -36,6 +37,9 @@ public class UIManager : MonoBehaviour
     public bool isSaplingsMenuVisible;
     public GameObject saplingsMenu;
     public bool isWoodsMenuVisible;
+    public Button Birch;
+    public Button Oak;
+    public Button Spruce;
 
     [Header("movement")]
     //one step right is from -46 to -39 so +7
@@ -52,23 +56,29 @@ public class UIManager : MonoBehaviour
     [Header("TopMenus")]
     public Text GameSpeed;
     public float gameSpeed;
-
     private void Start()
     {
-        StartUp();
+
+        Invoke("StartUp", .02f);
+        
     }
-  private void StartUp()
+    private void Update()
     {
         
+    }
+    private void StartUp()
+    {
+        uim = this;
         IsAreaMenuVisible = false;
         isBuildingMenuVisible = false;
         isSaplingsMenuVisible = false;
         baseMovementSpeed = 7f;
         menuWidth = buildingRect.rect.width;
-        cameraBoundaries[0] = -46f;
-        cameraBoundaries[1] = 47f;
-        cameraBoundaries[2] = -54f;
-        cameraBoundaries[3] = 42f;
+        cameraBoundaries[0] = MapGenerator.mapGenerator.tile_botleft.transform.position.x + 3.5f;
+        cameraBoundaries[1] = MapGenerator.mapGenerator.tile_toplight.transform.position.x - 4.5f;
+        cameraBoundaries[2] = MapGenerator.mapGenerator.tile_botleft.transform.position.z - 4.5f; //done
+        cameraBoundaries[3] = MapGenerator.mapGenerator.tile_toplight.transform.position.z - 4.5f;//140f;
+        MainCamera.transform.position = new Vector3(cameraBoundaries[0], MainCamera.transform.position.y, cameraBoundaries[2]);
         isMovementActive = true;
         speedText.text = " Camera Speed       " + speedSlider.value.ToString("f2");
     }
@@ -231,7 +241,10 @@ public class UIManager : MonoBehaviour
     {
         globalSelection.SetTreesToCut();
     }
-
+    public void SetToStorage()
+    {
+        globalSelection.SetToStorage();
+    }
 
 
 }

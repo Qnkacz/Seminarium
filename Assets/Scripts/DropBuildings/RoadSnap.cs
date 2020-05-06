@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,11 +15,6 @@ public class RoadSnap : MonoBehaviour
     bool canbuild;
     private void OnTriggerEnter(Collider other)
     {
-        
-            if (other.gameObject.tag == "tile")
-            {
-                targetTile = other.gameObject;
-            }
             if(other.gameObject.tag=="truck")
             {
             hasTruck = true;
@@ -33,8 +29,11 @@ public class RoadSnap : MonoBehaviour
         }
     }
 
-    public void Snap()
+    private void Start()
     {
+        hasTruck = false;
+        canbuild = false;
+        targetTile = this.gameObject.transform.parent.gameObject;
         if (targetTile!=null)
         {
             tileInfo = targetTile.GetComponent<tileInfo>();
@@ -44,13 +43,14 @@ public class RoadSnap : MonoBehaviour
             {
                 if (canbuild)
                 {
-                    this.transform.parent = targetTile.transform;
                     this.transform.position = targetTile.transform.position;
                     if (s.child != null) Destroy(s.child);
                     s.child = this.gameObject;
                     targetTile.GetComponent<tileInfo>().hasRoad = true;
                     GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Road);
-                    StartCoroutine(buildroad());
+                    this.gameObject.SetActive(true);
+                    buildnavmesh();
+                    Invoke("buildnavmesh", .03f);
                     GlobalVariables.g.roadCount++;
                 }
                 else Destroy(this.gameObject);
@@ -64,11 +64,13 @@ public class RoadSnap : MonoBehaviour
 
         
     }
-    private void Start()
+
+    private void buildnavmesh()
     {
-        hasTruck = false;
-        canbuild = false;
+        GlobalVariables.g.surface.BuildNavMesh();
     }
+
+   
     IEnumerator buildroad()
     {
         yield return new WaitForSeconds(.05f);
@@ -92,6 +94,14 @@ public class RoadSnap : MonoBehaviour
         {
             adjtiles[3] = MapGenerator.mapGenerator.tilesArr[tileInfo.myArrayX, tileInfo.myArrayY - 1].GetComponent<Soil>();
         }
+
+        for (int i = 0; i < adjtiles.Length; i++)
+        {
+            if (adjtiles[i] == null)
+            {
+                adjtiles[i] = dummy;
+            }
+        }
         if (GlobalVariables.g.roadCount == 0) canbuild = true;
         else
         {
@@ -101,7 +111,11 @@ public class RoadSnap : MonoBehaviour
                 {
                     adjtiles[i] = dummy;
                 }
-                if(adjtiles[i].child.tag=="road" || adjtiles[i].child.tag=="tree")
+                if(adjtiles[i].child==null)
+                {
+                    if (canbuild == false) canbuild = false;
+                }
+                else if(adjtiles[i].child.tag=="road" || adjtiles[i].child.tag=="tree")
                 {
                     canbuild = true;
                 }

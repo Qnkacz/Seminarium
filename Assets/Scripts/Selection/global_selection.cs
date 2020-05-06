@@ -204,7 +204,7 @@ public class global_selection : MonoBehaviour
                 if(other.gameObject.tag=="tile")
                 {
                     Soil s=other.gameObject.GetComponent<Soil>();
-                    if (s.child==null || s.asignedCrateBuilding!=null)
+                    if (s.child==null && s.asignedCrateBuilding!=null)
                     {
                         s.SpawnStorage();
                     }

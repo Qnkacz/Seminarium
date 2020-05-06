@@ -30,7 +30,7 @@ public class Tree : MonoBehaviour
     public float timeToOld;
     public float baseWoodYield;
     public float woodYield;
-    public float RefreshTime=100f;
+    //public float RefreshTime=100f;
     public bool setToCut;
     public bool ableToCut;
 
@@ -41,11 +41,11 @@ public class Tree : MonoBehaviour
         cutSignal = true;
         setToCut = false;
         ableToCut = false;
-        RefreshTime = 100f;
+        //RefreshTime = 100f;
         TreeTimersSetter();
         SetStartingStage();
         SetWoodYield();
-        StartCoroutine(TreeGrowthTick(RefreshTime));
+        //StartCoroutine(TreeGrowthTick(RefreshTime));
     }
     private void Update()
     {
@@ -137,7 +137,6 @@ public class Tree : MonoBehaviour
     {
         while (true)
         {
-            
             yield return new WaitForSeconds(time);
             currAge += time + soil.currSoilGrade*.25f;
         }

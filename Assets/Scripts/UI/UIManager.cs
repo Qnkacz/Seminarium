@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager uim;
     public global_selection globalSelection;
     public BossScript BossScript;
     [Header("MainCamera")]
@@ -67,7 +68,7 @@ public class UIManager : MonoBehaviour
     }
     private void StartUp()
     {
-        
+        uim = this;
         IsAreaMenuVisible = false;
         isBuildingMenuVisible = false;
         isSaplingsMenuVisible = false;

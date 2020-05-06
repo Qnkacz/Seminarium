@@ -6,38 +6,34 @@ using UnityEngine.EventSystems;
 
 public class GroundPlacementController : MonoBehaviour
 {
+    public static GroundPlacementController GPC;
     public BuildingActivate BA;
     public GameObject[] PlacableObjectPrefab;
     public GameObject[] PlacableSaplings;
     public enum Buildings
     {
-        road, shack,mainBuilding,storage
+        road, shack, mainBuilding, storage
     }
     public enum Saplings
     {
         oak, birch, spruce
     }
     public GameObject currPlacableObject;
-
+    private void Start()
+    {
+        GPC = this;
+    }
     void LateUpdate()
     {
-        
-        if(currPlacableObject!=null)
-        {
-            MoveCurrObjectToMouse();
-            ReleaseIfClicked();
-        }
-        else
-        {
-            Click();
-        }
+        Click();
     }
 
     public void Click()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject()) return;
+
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
@@ -45,134 +41,151 @@ public class GroundPlacementController : MonoBehaviour
                 if (hit.transform.gameObject.tag == "tile")
                 {
                     Soil s = hit.transform.gameObject.GetComponent<Soil>();
-                    if(s.child!=null)
+
+                    if (s.child == null || s.child.tag == "tree" || s.child.tag == "Storage")
                     {
-                        if(s.child.tag=="crate")
+                        PutObject(hit.transform.gameObject);
+                    }
+                    else if (s.child.tag == "crate")
                         {
                             if (s.child.GetComponent<BuildingToRoad>().canFunction) s.child.GetComponent<TruckManager>().sendTruck();
                         }
-                        if(s.child.tag=="obstacle")
+                        else if (s.child.tag == "obstacle")
                         {
                             s.child.GetComponent<ObstacleInfo>().AwakeCanvas();
                         }
-                    }
+                    
                 }
             }
         }
-       
+
     }
 
-    public void ReleaseIfClicked()
+    public void PutObject(GameObject obj)
     {
-        if(Input.GetMouseButtonDown(0))
+
+        if(currPlacableObject!=null)
         {
-            
+            GameObject o;
+            if(currPlacableObject.tag=="road")
+            {
+                o = Instantiate(currPlacableObject, obj.transform.position, Quaternion.Euler(-90,0, 0));
+            }
+            else if(currPlacableObject.tag=="MainBuilding")
+            {
+                o = Instantiate(currPlacableObject, obj.transform.position+new Vector3(0,0, .6f), Quaternion.identity);
+            }
+            else
+            {
+                o = Instantiate(currPlacableObject, obj.transform.position+new Vector3(0, .3f,0), Quaternion.identity);
+            }
+            o.transform.parent = obj.transform;
             if (currPlacableObject.GetComponent<RoadSnap>() != null)
             {
-                currPlacableObject.GetComponent<RoadSnap>().Snap();
+                //currPlacableObject.GetComponent<RoadSnap>().Snap();
                 BA.button_ActivateMainBuildingButton();
                 currPlacableObject.gameObject.layer = 14;
             }
-            if(currPlacableObject.GetComponent<BuildingToRoad>()!=null)
+            if (currPlacableObject.GetComponent<BuildingToRoad>() != null)
             {
-                currPlacableObject.GetComponent<BuildingToRoad>().Snap();
+                //currPlacableObject.GetComponent<BuildingToRoad>().Snap(obj);
                 BA.button_ActivateShackBuildingButton();
             }
-            if(currPlacableObject.GetComponentInChildren<StorageSnap>()!=null)
+            if (currPlacableObject.GetComponentInChildren<StorageSnap>() != null)
             {
                 currPlacableObject.GetComponentInChildren<StorageSnap>().Snap();
             }
-            if(currPlacableObject.GetComponentInChildren<SaplingSnap>() != null)
+            if (currPlacableObject.GetComponentInChildren<SaplingSnap>() != null)
             {
                 currPlacableObject.GetComponentInChildren<SaplingSnap>().Snap();
             }
             currPlacableObject = null;
-            
         }
-    }
-    private void MoveCurrObjectToMouse()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
 
-        RaycastHit hitInfo;
-        if(Physics.Raycast(ray,out hitInfo))
-        {
-           
-            if (hitInfo.transform.gameObject.layer!=12 )
-            {
-                currPlacableObject.transform.position = hitInfo.point;
-                
-            }
-            if(currPlacableObject==null)
-            {
-                Debug.Log("currplacable is null");
-                    if (hitInfo.transform.gameObject.tag == "tile")
-                    {
-                    Debug.Log("hit a tile");
-                        Soil s = hitInfo.transform.gameObject.GetComponent<Soil>();
-                        if (s.child.tag == "crate")
-                        {
-
-                            s.child.GetComponent<TruckManager>().sendTruck();
-
-                        }
-                    }
-                
-            }
-        }
     }
 
- 
+
     public void button_RoadButton()
     {
         if (currPlacableObject == null)
         {
-            currPlacableObject = Instantiate(PlacableObjectPrefab[(int)Buildings.road]);
+            currPlacableObject = PlacableObjectPrefab[(int)Buildings.road];
         }
-        else Destroy(currPlacableObject);
-       
+
     }
     public void button_ShackButton()
     {
-        if (currPlacableObject == null) currPlacableObject = Instantiate(PlacableObjectPrefab[(int)Buildings.shack]);
-        else Destroy(currPlacableObject);
+        if (currPlacableObject == null) currPlacableObject = PlacableObjectPrefab[(int)Buildings.shack];
     }
     public void button_MainBuildingButton()
     {
-        if (currPlacableObject == null) currPlacableObject = Instantiate(PlacableObjectPrefab[(int)Buildings.mainBuilding]);
-        else Destroy(currPlacableObject);
+        if (currPlacableObject == null) currPlacableObject = PlacableObjectPrefab[(int)Buildings.mainBuilding];
     }
     public void button_StorageButton()
     {
         if (currPlacableObject == null)
         {
-            currPlacableObject = Instantiate(PlacableObjectPrefab[(int)Buildings.storage]);
+            currPlacableObject = PlacableObjectPrefab[(int)Buildings.storage];
         }
-        else Destroy(currPlacableObject);
     }
     public void button_sapling_Birch()
     {
-        if(currPlacableObject==null)
+        if (currPlacableObject == null)
         {
-            currPlacableObject = Instantiate(PlacableSaplings[(int)Saplings.birch]);
+            currPlacableObject = PlacableSaplings[(int)Saplings.birch];
         }
-        else Destroy(currPlacableObject);
     }
     public void button_sapling_Oak()
     {
         if (currPlacableObject == null)
         {
-            currPlacableObject = Instantiate(PlacableSaplings[(int)Saplings.oak]);
+            currPlacableObject = PlacableSaplings[(int)Saplings.oak];
         }
-        else Destroy(currPlacableObject);
     }
     public void button_sapling_Spruce()
     {
         if (currPlacableObject == null)
         {
-            currPlacableObject = Instantiate(PlacableSaplings[(int)Saplings.spruce]);
+            currPlacableObject = PlacableSaplings[(int)Saplings.spruce];
         }
-        else Destroy(currPlacableObject);
     }
+
 }
+    
+    //private void MoveCurrObjectToMouse()
+    //{
+    //    if(Input.GetMouseButtonDown(0))
+    //    {
+    //        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+    //        RaycastHit hitInfo;
+    //        if (Physics.Raycast(ray, out hitInfo))
+    //        {
+
+    //            if (hitInfo.transform.gameObject.layer != 12)
+    //            {
+    //                currPlacableObject.transform.position = hitInfo.point;
+
+    //            }
+    //            if (currPlacableObject == null)
+    //            {
+    //                Debug.Log("currplacable is null");
+    //                if (hitInfo.transform.gameObject.tag == "tile")
+    //                {
+    //                    Debug.Log("hit a tile");
+    //                    Soil s = hitInfo.transform.gameObject.GetComponent<Soil>();
+    //                    if (s.child.tag == "crate")
+    //                    {
+    //                        s.child.GetComponent<TruckManager>().sendTruck();
+    //                    }
+    //                }
+
+    //            }
+    //        }
+    //    }
+        
+    //}
+
+ 
 

@@ -28,11 +28,12 @@ public class CrateBuilding : MonoBehaviour
             if(other.gameObject.tag=="tile")
             {
                 other.gameObject.GetComponent<Soil>().asignedCrateBuilding = this;
-             }
+            }
     }
     private void Start()
     {
         thisCollider = this.gameObject.GetComponent<SphereCollider>();
+        thisCollider.radius = 80f;
         ExtendedStorage = baseWoodStorage;
         StorageBuildingsCount = 0;
         StartCoroutine(SwitchCollider());
@@ -72,8 +73,22 @@ public class CrateBuilding : MonoBehaviour
             else
             {
                 thisCollider.enabled = true;
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(.01f);
             }
         }
+    }
+    IEnumerator GrowCollider()
+    {
+        while(thisCollider.radius<80)
+        {
+            thisCollider.radius += .1f;
+            yield return new WaitForSeconds(.1f);
+        }
+        if(thisCollider.radius>=80)
+        {
+            thisCollider.radius = 80f;
+            StopCoroutine(GrowCollider());
+        }
+        
     }
 }
