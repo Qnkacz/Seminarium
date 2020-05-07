@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SaplingSnap : MonoBehaviour
 {
-    public BoxCollider collider;
     public GameObject targettile;
     public Soil targetsoil;
     private void OnTriggerEnter(Collider other)
@@ -32,9 +32,5 @@ public class SaplingSnap : MonoBehaviour
             GlobalMoneymanager.GMM.ChangeMoney(-GlobalMoneymanager.GMM.cost_Sapling);
             Destroy(this.gameObject);
         }
-    }
-    public void Snap()
-    {
-        
     }
 }

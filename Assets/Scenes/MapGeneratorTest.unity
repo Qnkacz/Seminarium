@@ -1125,7 +1125,7 @@ MonoBehaviour:
   PlacableSaplings:
   - {fileID: 6071558437404496939, guid: b1c9465798433e142be6debd8f585929, type: 3}
   - {fileID: 244026066764597904, guid: c026f25770c1bf340af843d062210532, type: 3}
-  - {fileID: 5306679083884744842, guid: f2edf66811334274ebef0b105af500e0, type: 3}
+  - {fileID: 5436724149114457161, guid: aca046132ce6f0944b08a8dd86ebf50a, type: 3}
   currPlacableObject: {fileID: 0}
 --- !u!114 &1350200960
 MonoBehaviour:
