@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using System;
 
 public class GlobalVariables : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class GlobalVariables : MonoBehaviour
     void Start()
     {
         g = this;
+        DefaultSettings();
         if (moneySlider==null || Fertilize == null || MapSize == null)
         {
             currMoney = startMoneyAmount;
@@ -64,7 +66,19 @@ public class GlobalVariables : MonoBehaviour
         }
         BirchSapling = SpruceSapling = OakSapling = 0;
         roadCount = 0;
+
+       
     }
+
+    private void DefaultSettings()
+    {
+       startMoneyAmount=10000;
+       Start_FertCount=1;
+       Start_mapSize=1;
+       Start_mapSeed=1;
+       start_boulderCount=1;
+}
+
     public void ChangeMoney()
     {
         startMoneyAmount = (int)moneySlider.value;

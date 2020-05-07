@@ -46,7 +46,7 @@ MonoBehaviour:
   m_MinSize: {x: 581, y: 494}
   m_MaxSize: {x: 14002, y: 14044}
   vertical: 1
-  controlID: 123
+  controlID: 57
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 581, y: 494}
   m_MaxSize: {x: 14002, y: 14044}
   vertical: 0
-  controlID: 124
+  controlID: 58
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 71
+  controlID: 59
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 72
+  controlID: 115
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -335,9 +335,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -43.950775, y: 1.954725, z: -48.290195}
+    m_Target: {x: 540.7467, y: 367.35657, z: 64.99982}
     speed: 2
-    m_Value: {x: -43.950775, y: 1.954725, z: -48.290195}
+    m_Value: {x: 540.7467, y: 367.35657, z: 64.99982}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -366,13 +366,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.22485764, y: -0.01023557, z: 0.002362148, w: 0.9743356}
+    m_Target: {x: 0.06925401, y: -0.0015011771, z: 0.000104188824, w: 0.99759835}
     speed: 2
-    m_Value: {x: 0.22485751, y: -0.010235564, z: 0.0023621465, w: 0.974335}
+    m_Value: {x: 0.06925399, y: -0.0015011765, z: 0.00010418879, w: 0.997598}
   m_Size:
-    m_Target: 1.3367767
+    m_Target: 750.6843
     speed: 2
-    m_Value: 1.3367767
+    m_Value: 750.6843
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 24426
+  m_LastSelectedObjectID: 23764
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -604,20 +604,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/GameObjects
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/GameObjects
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Pan Janusz Tracz\Seminarium
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 96}
-    m_SelectedIDs: f0360000
-    m_LastClickedID: 14064
-    m_ExpandedIDs: 000000009433000004340000a835000018370000203800008e3b0000de44000000ca9a3b
+    m_SelectedIDs: 26380000
+    m_LastClickedID: 14374
+    m_ExpandedIDs: 000000009633000006340000ac3500001c37000026380000943b00009045000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -645,7 +645,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009433000004340000a83500001837000020380000de440000
+    m_ExpandedIDs: 000000009633000006340000ac3500001c37000026380000943b000090450000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -768,23 +768,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 54450000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1cc2befffed4c5ffd2e7c5ff980bcdff1818cdffac24cdff7044d4ff4457d4fff660d4ff4283dbff9689dbffe6cbe2ffeee5e9ff2eece9ff82f2e9ff84fce9ffe219f1ff7626f1ffee5df8ff4efaffffeefaffff10fbffff76fbffff5c3e0000823e0000
+      m_ExpandedIDs: 3accf8ff14cef8ff4ecef8ff56cff8ff86cff8ffa6f5ffffdef5ffffe2f6ffff12f7ffff76fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: sadzonka_trzon.003
-        m_OriginalName: sadzonka_trzon.003
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -15918
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 

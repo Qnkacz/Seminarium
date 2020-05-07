@@ -71,11 +71,11 @@
     <Compile Include="Assets\Editor\NavMeshModifierVolumeEditor.cs" />
     <Compile Include="Assets\Editor\NavMeshSurfaceEditor.cs" />
     <None Include="Assets\Editor\NavMeshComponentsEditor.asmdef" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Pan Janusz Tracz/Seminarium/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/Pan Janusz Tracz/Seminarium/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/Pan Janusz Tracz/Seminarium/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/Pan Janusz Tracz/Seminarium/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
