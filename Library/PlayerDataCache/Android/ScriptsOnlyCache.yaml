@@ -31,8 +31,6 @@ ScriptsOnlyBuild:
     - treeCutManager
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshSurface
-    Unity.CollabProxy.Editor.dll:
-    - UnityEditor.CollabToolbarWindow
     Unity.Postprocessing.Runtime.dll:
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
     - UnityEngine.Rendering.PostProcessing.AutoExposure
@@ -67,7 +65,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -787,7 +784,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 93ec6ba21e97457971bfd7cfd7997979
+      Hash: 152f0d8c7d7dd24c89df3a8a09c18dcc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapGenerator
@@ -841,7 +838,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 8ad7bf969cdab2f1a69a96b3b8915b86
+      Hash: 5a941a372728eb59f77347ff38b16798
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Tree

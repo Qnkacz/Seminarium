@@ -82,22 +82,16 @@ public class GroundPlacementController : MonoBehaviour
             o.transform.parent = obj.transform;
             if (currPlacableObject.GetComponent<RoadSnap>() != null)
             {
-                //currPlacableObject.GetComponent<RoadSnap>().Snap();
                 BA.button_ActivateMainBuildingButton();
                 currPlacableObject.gameObject.layer = 14;
             }
             if (currPlacableObject.GetComponent<BuildingToRoad>() != null)
             {
-                //currPlacableObject.GetComponent<BuildingToRoad>().Snap(obj);
                 BA.button_ActivateShackBuildingButton();
             }
             if (currPlacableObject.GetComponentInChildren<StorageSnap>() != null)
             {
                 currPlacableObject.GetComponentInChildren<StorageSnap>().Snap();
-            }
-            if (currPlacableObject.GetComponentInChildren<SaplingSnap>() != null)
-            {
-                currPlacableObject.GetComponentInChildren<SaplingSnap>().Snap();
             }
             currPlacableObject = null;
         }
@@ -112,7 +106,6 @@ public class GroundPlacementController : MonoBehaviour
         {
             currPlacableObject = PlacableObjectPrefab[(int)Buildings.road];
         }
-
     }
     public void button_ShackButton()
     {

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SaplingSnap : MonoBehaviour
 {
-    private GameObject targettile;
-    private Soil targetsoil;
+    public BoxCollider collider;
+    public GameObject targettile;
+    public Soil targetsoil;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="tile")
@@ -13,11 +14,11 @@ public class SaplingSnap : MonoBehaviour
             targettile =other.gameObject;
         }
     }
-
-    public void Snap()
+    private void Start()
     {
+        targettile = this.gameObject.transform.parent.gameObject;
         Soil s = targettile.GetComponent<Soil>();
-        if (s.child==null || s.child.tag=="Storage")
+        if (s.child == null || s.child.tag == "Storage")
         {
             this.gameObject.transform.position = targettile.transform.position;
             this.gameObject.transform.parent = targettile.transform;
@@ -26,5 +27,14 @@ public class SaplingSnap : MonoBehaviour
             targetsoil.child = this.gameObject;
             GlobalMoneymanager.GMM.ChangeMoney(GlobalMoneymanager.GMM.cost_Sapling);
         }
+        else
+        {
+            GlobalMoneymanager.GMM.ChangeMoney(-GlobalMoneymanager.GMM.cost_Sapling);
+            Destroy(this.gameObject);
+        }
+    }
+    public void Snap()
+    {
+        
     }
 }

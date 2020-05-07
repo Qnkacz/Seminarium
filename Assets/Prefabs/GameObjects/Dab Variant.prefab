@@ -39,7 +39,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -91,11 +91,9 @@ MonoBehaviour:
   timeToOld: 0
   baseWoodYield: 0
   woodYield: 0
-  RefreshTime: 0
   setToCut: 0
   ableToCut: 0
   cutSignal: 0
-  storage: {fileID: 5890954702675923809, guid: 230873d6c71400041b8da49dee7b5dd8, type: 3}
 --- !u!1001 &7066646796203303575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +111,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cb4e35ccf72276d4d911635c1d9621b2, type: 2}
+    - target: {fileID: -6382120451616510307, guid: 1f3a4711570d6a24c982048b61f795b6,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1f3a4711570d6a24c982048b61f795b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -208,6 +211,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c542c7c12f85e0242af39e3d3c0cb170, type: 2}
+    - target: {fileID: 6758111973976308041, guid: 1f3a4711570d6a24c982048b61f795b6,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f3a4711570d6a24c982048b61f795b6, type: 3}
 --- !u!1 &1238534721530952606 stripped

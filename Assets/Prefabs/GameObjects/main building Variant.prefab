@@ -39,7 +39,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -276,6 +276,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 38c292d41dc7f4146afddbc46a20998a, type: 2}
+    - target: {fileID: -2397996973257786244, guid: 3f3187f5de29a8e44907b9a686f44db7,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}
       propertyPath: m_Name
@@ -296,6 +301,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e59448d862c69034c94f0d6d7943b3eb, type: 2}
+    - target: {fileID: 1066910053003865102, guid: 3f3187f5de29a8e44907b9a686f44db7,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4695666576454475813, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}
       propertyPath: m_Layer
@@ -306,6 +316,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd97ad5d097ac164785c3e8a3ffc9463, type: 2}
+    - target: {fileID: 5490870052100550915, guid: 3f3187f5de29a8e44907b9a686f44db7,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7469484624682501897, guid: 3f3187f5de29a8e44907b9a686f44db7,
         type: 3}
       propertyPath: m_Layer

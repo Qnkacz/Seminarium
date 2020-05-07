@@ -91,11 +91,9 @@ MonoBehaviour:
   timeToOld: 0
   baseWoodYield: 0
   woodYield: 0
-  RefreshTime: 0
   setToCut: 0
   ableToCut: 0
   cutSignal: 0
-  storage: {fileID: 5890954702675923809, guid: 230873d6c71400041b8da49dee7b5dd8, type: 3}
 --- !u!1001 &4216760772002138499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -188,6 +186,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd97ad5d097ac164785c3e8a3ffc9463, type: 2}
+    - target: {fileID: -1526821854930223906, guid: 27a51fae17b535745aea4a4ec9cca0d4,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 27a51fae17b535745aea4a4ec9cca0d4,
         type: 3}
       propertyPath: m_Name
@@ -208,6 +211,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e59448d862c69034c94f0d6d7943b3eb, type: 2}
+    - target: {fileID: 4063835366044962077, guid: 27a51fae17b535745aea4a4ec9cca0d4,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a51fae17b535745aea4a4ec9cca0d4, type: 3}
 --- !u!1 &5306679083884744842 stripped
